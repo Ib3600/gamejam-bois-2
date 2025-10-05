@@ -2,14 +2,18 @@ extends CharacterBody2D
 
 var is_flipped:bool
 var is_attacking:bool
+var can_attack:bool
 @export var moveSpeed:int
 
 signal attacking
 
 
 func _ready():
+	$AnimatedSprite2D.play("idle")
+	can_attack = true
 	is_flipped = true
 	attacking.connect(attack)
+	
 	pass
 	
 func _process(delta):
@@ -37,6 +41,12 @@ func input():
 		move_and_slide()
 	
 func attack():
+	can_attack = false
 	is_attacking = true
-	
-	pass
+	$swordAttack/attackCooldown.start()
+
+
+func _on_attack_cooldown_timeout():
+	can_attack = true
+	is_attacking = false
+	pass # Replace with function body.
