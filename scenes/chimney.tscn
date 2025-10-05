@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://1vagkgo2wl3"]
+
+[ext_resource type="PackedScene" uid="uid://b1miu5j1xal6u" path="res://scenes/particles/fire.tscn" id="1_6nfxw"]
+[ext_resource type="Texture2D" uid="uid://ddekm43kkp6ol" path="res://assets/chimney2.png" id="2_am6md"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nfxw"]
+size = Vector2(92, 65)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nfxw"]
+radius = 52.0
+height = 104.0
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="fire" parent="." instance=ExtResource("1_6nfxw")]
+z_index = 10
+position = Vector2(-1, -26)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -4
+scale = Vector2(0.0287578, 0.0287578)
+texture = ExtResource("2_am6md")
+offset = Vector2(0, -1900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_6nfxw")
+
+[node name="Area2D" type="Area2D" parent="." groups=["chimney"]]
+position = Vector2(1, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 26)
+shape = SubResource("CapsuleShape2D_6nfxw")

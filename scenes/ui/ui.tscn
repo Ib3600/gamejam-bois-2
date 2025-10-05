@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://buvmu5fekpmd7"]
+
+[ext_resource type="Script" uid="uid://bjg1qrysqhj7h" path="res://scripts/global/global.gd" id="1_u7n8c"]
+[ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="2_aac20"]
+[ext_resource type="Script" uid="uid://86xdq6cix3e2" path="res://scripts/ui/wood_counter.gd" id="3_g5kmx"]
+[ext_resource type="PackedScene" uid="uid://vykma6ehhcnd" path="res://scenes/ui/heat_bar.tscn" id="4_g5kmx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0dwhk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aac20"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u7n8c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 120.0
+offset_bottom = 53.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+modulate = Color(1, 0, 0.239216, 1)
+layout_mode = 2
+texture = SubResource("CanvasTexture_0dwhk")
+
+[node name="wood" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(13.75, 11.75)
+scale = Vector2(0.427083, 0.427083)
+texture = ExtResource("2_aac20")
+
+[node name="Label" type="Label" parent="MarginContainer/wood"]
+offset_left = 24.0
+offset_top = -13.4634
+offset_right = 75.0
+offset_bottom = 9.53658
+text = "jdajlkk"
+label_settings = SubResource("LabelSettings_aac20")
+script = ExtResource("3_g5kmx")
+
+[node name="Node2D" parent="." instance=ExtResource("4_g5kmx")]
+offset_left = 2.0
+offset_top = 22.0
+offset_right = 98.0
+offset_bottom = 49.0

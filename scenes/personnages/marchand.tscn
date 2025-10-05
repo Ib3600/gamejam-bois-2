@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://c20p6vgln3v5b"]
+
+[ext_resource type="Script" uid="uid://b0c6k0keeki2a" path="res://scripts/personnages/fee.gd" id="1_mojwl"]
+[ext_resource type="Texture2D" uid="uid://3ajlm0w4npgo" path="res://assets/characters/mouvement_marchand.png" id="2_mojwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivv3j"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa3up"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvhy0"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvxlu"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_himvt"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72y8y"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfox0"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhvmo"]
+atlas = ExtResource("2_mojwl")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8ulc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivv3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa3up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvhy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvxlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_himvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72y8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfox0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhvmo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujlal"]
+radius = 30.0
+height = 74.0
+
+[node name="Node2D" type="StaticBody2D"]
+script = ExtResource("1_mojwl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u8ulc")
+frame_progress = 0.504306
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ujlal")

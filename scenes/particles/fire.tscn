@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1miu5j1xal6u"]
+
+[sub_resource type="Curve" id="Curve_0bqfx"]
+_data = [Vector2(0.0170455, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.292135), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_pcpuu"]
+offsets = PackedFloat32Array(0.00666667, 0.193333, 0.333333, 0.68, 0.993333)
+colors = PackedColorArray(1, 0.0666667, 0.113725, 1, 1, 0.247059, 0.0980392, 1, 1, 0.635294, 0.101961, 1, 1, 0.823529, 0.568627, 0, 1, 1, 1, 0)
+
+[node name="Node2D" type="CPUParticles2D"]
+amount = 2000
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, -200)
+radial_accel_min = -100.0
+radial_accel_max = -33.84
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_0bqfx")
+color_ramp = SubResource("Gradient_pcpuu")
+
+[node name="Node2D" type="CPUParticles2D" parent="."]
+position = Vector2(-13, -3)
+rotation = -6.28319
+amount = 2000
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, -200)
+radial_accel_min = -100.0
+radial_accel_max = -2.8
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_0bqfx")
+color_ramp = SubResource("Gradient_pcpuu")
+
+[node name="Node2D2" type="CPUParticles2D" parent="."]
+position = Vector2(14, -2)
+amount = 2000
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, -200)
+radial_accel_min = -50.0
+radial_accel_max = 34.85
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_0bqfx")
+color_ramp = SubResource("Gradient_pcpuu")

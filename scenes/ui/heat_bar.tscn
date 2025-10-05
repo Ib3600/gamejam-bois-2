@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://vykma6ehhcnd"]
+
+[ext_resource type="Texture2D" uid="uid://dnkgrhsnysfj8" path="res://assets/ui/under_health_bar.png" id="1_56p1p"]
+[ext_resource type="Texture2D" uid="uid://bwq5upfvg1kvq" path="res://assets/ui/over_health_bar.png" id="2_extgh"]
+[ext_resource type="Texture2D" uid="uid://dm770ufe22d5s" path="res://assets/ui/progress_health_bar.png" id="3_nlujh"]
+[ext_resource type="Script" uid="uid://bmfll1pwqadlk" path="res://scripts/ui/heat_bar.gd" id="4_extgh"]
+
+[node name="Node2D" type="TextureProgressBar"]
+texture_filter = 1
+max_value = 50.0
+step = 0.1
+value = 50.0
+texture_under = ExtResource("1_56p1p")
+texture_over = ExtResource("2_extgh")
+texture_progress = ExtResource("3_nlujh")
+script = ExtResource("4_extgh")
