@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://v45i8xmwiev"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_1cac0"]
+[ext_resource type="Script" uid="uid://d0bx5gv2eo8a3" path="res://scenes/player.gd" id="1_1cac0"]
 [ext_resource type="Texture2D" uid="uid://j0b1tteegpit" path="res://assets/characters/woodycharacter.png" id="1_pd8f7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6863"]
