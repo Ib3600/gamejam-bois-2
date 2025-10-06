@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddjc42mflb4wy"]
+
+[ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="1_dywb4"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_dywb4")

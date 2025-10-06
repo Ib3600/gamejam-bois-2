@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj5ri2m5s0mvp"]
+
+[ext_resource type="Texture2D" uid="uid://fxk6tubmnp88" path="res://assets/Maple_Stage_5-export.png" id="1_avsvi"]
+[ext_resource type="Script" uid="uid://dun0ndqwf2jsm" path="res://scripts/trees.gd" id="1_vplca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vplca"]
+size = Vector2(36, 77.5)
+
+[node name="trees" type="StaticBody2D"]
+script = ExtResource("1_vplca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24.75)
+shape = SubResource("RectangleShape2D_vplca")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -26)
+shape = SubResource("RectangleShape2D_vplca")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("1_avsvi")
+offset = Vector2(0, -81.77)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

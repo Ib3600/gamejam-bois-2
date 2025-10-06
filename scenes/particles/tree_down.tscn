@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5p0niipwk506"]
+
+[sub_resource type="Curve" id="Curve_uwvao"]
+_data = [Vector2(0.00568181, 1), 0.0, 0.0, 0, 0, Vector2(0.994318, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Node2D" type="CPUParticles2D"]
+modulate = Color(0.452619, 0.188256, 3.7542e-06, 1)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 2.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_uwvao")

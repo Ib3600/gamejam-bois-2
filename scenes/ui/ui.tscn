@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://buvmu5fekpmd7"]
+
+[ext_resource type="Script" uid="uid://bjg1qrysqhj7h" path="res://scripts/global/global.gd" id="1_u7n8c"]
+[ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="2_aac20"]
+[ext_resource type="Script" uid="uid://86xdq6cix3e2" path="res://scripts/ui/wood_counter.gd" id="3_g5kmx"]
+[ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="4_0dwhk"]
+[ext_resource type="PackedScene" uid="uid://vykma6ehhcnd" path="res://scenes/ui/heat_bar.tscn" id="4_g5kmx"]
+[ext_resource type="Texture2D" uid="uid://45oayaw11ko8" path="res://assets/gold.png" id="5_pfayw"]
+[ext_resource type="PackedScene" uid="uid://npr5cdbp0vyb" path="res://scenes/particles/health_bar.tscn" id="7_7vp6q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aac20"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u7n8c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 120.0
+offset_bottom = 53.0
+
+[node name="wood" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(253, 20)
+scale = Vector2(0.427083, 0.427083)
+texture = ExtResource("2_aac20")
+
+[node name="Label" type="Label" parent="MarginContainer/wood"]
+anchors_preset = -1
+anchor_left = 1.125
+anchor_top = 0.312
+anchor_right = 2.646
+anchor_bottom = 1.0
+offset_left = -117.22
+offset_top = -40.7321
+offset_right = -117.228
+offset_bottom = -24.7561
+scale = Vector2(2.14087, 2.14087)
+text = "10"
+label_settings = SubResource("LabelSettings_aac20")
+script = ExtResource("3_g5kmx")
+label_name = "wood"
+
+[node name="food" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(185, 19)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0dwhk")
+
+[node name="Label" type="Label" parent="MarginContainer/food"]
+anchors_preset = -1
+anchor_left = 1.187
+anchor_top = 0.187
+anchor_right = 3.553
+anchor_bottom = 1.26
+offset_left = -449.92
+offset_top = -149.92
+offset_right = -742.48
+offset_bottom = -282.6
+scale = Vector2(9.83411, 9.83411)
+text = "10"
+label_settings = SubResource("LabelSettings_aac20")
+script = ExtResource("3_g5kmx")
+label_name = "food"
+
+[node name="money" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(128, 19)
+scale = Vector2(0.601852, 0.601852)
+texture = ExtResource("5_pfayw")
+
+[node name="Label" type="Label" parent="MarginContainer/money"]
+anchors_preset = -1
+anchor_left = 1.241
+anchor_top = 0.056
+anchor_right = 3.006
+anchor_bottom = 0.852
+offset_left = -75.0454
+offset_top = -19.7889
+offset_right = -71.7005
+offset_bottom = -18.2809
+scale = Vector2(1.4669, 1.4669)
+text = "10"
+label_settings = SubResource("LabelSettings_aac20")
+script = ExtResource("3_g5kmx")
+label_name = "money"
+
+[node name="heat_bar" parent="." instance=ExtResource("4_g5kmx")]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 100.0
+offset_bottom = 31.0
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("7_7vp6q")]
+offset_top = 38.0
+offset_right = 64.0
+offset_bottom = 78.0
+scale = Vector2(1.85148, 1.85148)

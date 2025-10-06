@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://roql8td538ad"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 1500
+lifetime = 0.5
+speed_scale = 1.5
+lifetime_randomness = 0.35
+emission_shape = 3
+emission_rect_extents = Vector2(50, 20)
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_max = 77.05
+radial_accel_min = -16.16
+radial_accel_max = 53.95
+damping_max = 14.58
+angle_max = 29.1
+scale_amount_min = 0.5
+scale_amount_max = 1.5

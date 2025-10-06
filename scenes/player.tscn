@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://v45i8xmwiev"]
+[gd_scene load_steps=16 format=3 uid="uid://v45i8xmwiev"]
 
-[ext_resource type="Script" uid="uid://d0bx5gv2eo8a3" path="res://scenes/player.gd" id="1_1cac0"]
+[ext_resource type="Script" uid="uid://t8j2etc8y10u" path="res://scenes/player.gd" id="1_1cac0"]
 [ext_resource type="Texture2D" uid="uid://j0b1tteegpit" path="res://assets/characters/woodycharacter.png" id="1_pd8f7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6863"]
@@ -94,16 +94,41 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efjxe"]
 radius = 7.0
 
-[node name="Node2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rbax"]
+size = Vector2(23, 30.25)
+
+[node name="Node2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1cac0")
-moveSpeed = 40
+moveSpeed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_eqngj")
-animation = &"run"
-frame_progress = 0.555781
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
+position = Vector2(-2, 7)
 shape = SubResource("CapsuleShape2D_efjxe")
+
+[node name="swordAttack" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="swordAttack" groups=["sword"]]
+position = Vector2(19, 5)
+
+[node name="swordCollision" type="CollisionShape2D" parent="swordAttack/Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0rbax")
+
+[node name="attackCooldown" type="Timer" parent="swordAttack"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 7)
+shape = SubResource("CapsuleShape2D_efjxe")
+
+[connection signal="timeout" from="swordAttack/attackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

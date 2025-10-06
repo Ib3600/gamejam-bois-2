@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcbcwt4s2on17"]
+
+[ext_resource type="Script" uid="uid://b0c6k0keeki2a" path="res://scripts/personnages/fee.gd" id="1_xqtn1"]
+[ext_resource type="Texture2D" uid="uid://cxs7o8y5h17ye" path="res://assets/characters/fee.png" id="2_c0ng0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qirqi"]
+atlas = ExtResource("2_c0ng0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4y2d"]
+atlas = ExtResource("2_c0ng0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x83l"]
+atlas = ExtResource("2_c0ng0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le643"]
+atlas = ExtResource("2_c0ng0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8ulc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qirqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4y2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x83l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le643")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujlal"]
+
+[node name="fee" type="StaticBody2D"]
+script = ExtResource("1_xqtn1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_u8ulc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_ujlal")

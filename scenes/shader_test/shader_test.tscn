@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://wjb1wexs7mog"]
+
+[ext_resource type="Shader" uid="uid://q22hoahu0e22" path="res://shader/shader_test.gdshader" id="1_75nt6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pts8o"]
+shader = ExtResource("1_75nt6")
+shader_parameter/VIEWPORT_SIZE = Vector2(1280, 720)
+shader_parameter/fall_speed = 0.2
+shader_parameter/opacity = 0.6
+shader_parameter/density = 8.0
+shader_parameter/pixel_size = 3.0
+
+[node name="shader_snow" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pts8o")
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(12.872, 5.15329)
+color = Color(1, 1, 1, 0.239216)
