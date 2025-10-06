@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=3 uid="uid://de8ocltrj02fo"]
+
+[ext_resource type="Script" path="res://scenes/textbox.gd" id="1_3xmdk"]
+[ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="1_nyk3b"]
+[ext_resource type="Texture2D" uid="uid://4immmyl86ylq" path="res://assets/dialogue/fairy_dialogue.png" id="3_g5d5p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsew3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyk3b"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qagdh"]
+atlas = ExtResource("3_g5d5p")
+region = Rect2(0, 0, 32, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4wvf"]
+atlas = ExtResource("3_g5d5p")
+region = Rect2(32, 0, 32, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rgox"]
+atlas = ExtResource("3_g5d5p")
+region = Rect2(64, 0, 32, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6occq"]
+atlas = ExtResource("3_g5d5p")
+region = Rect2(96, 0, 32, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4n6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qagdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4wvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rgox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6occq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TextBox" type="CanvasLayer"]
+script = ExtResource("1_3xmdk")
+
+[node name="TextBoxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -149.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nsew3")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="TextBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nyk3b")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TextBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_nyk3b")
+theme_override_font_sizes/font_size = 30
+text = "blablabla"
+autowrap_mode = 3
+
+[node name="Indicator" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_nyk3b")
+text = "Espace"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1001, 438)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_b4n6f")
+frame_progress = 0.0230586
