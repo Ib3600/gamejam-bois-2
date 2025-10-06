@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var move_speed: float = 100.0 
+@export var drop_name:String
+
 var target: Node2D = null  
 
 func _process(delta):
@@ -10,9 +12,15 @@ func _process(delta):
 
 		
 		if global_position.distance_to(target.global_position) < 10.0:
-			target = null
-			Global.wood_stock +=1
-			queue_free()  
+			match drop_name:
+				"wood":
+					target = null
+					Global.wood_stock += 1
+					queue_free()
+				"food":
+					target = null
+					Global.food_stock += 1
+					queue_free()
 
 
 func _on_detect_player_body_entered(body):

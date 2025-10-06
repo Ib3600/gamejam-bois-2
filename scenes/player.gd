@@ -36,6 +36,15 @@ signal attacking
 @export var wood_cooldown := 0.3  # secondes entre deux bois
 var last_wood_time := 0.0         # timestamp du dernier bois donné
 
+#gestion des enemies et des dégats : 
+
+@export var knockback_force: float = 400.0
+@export var knockback_duration: float = 0.2
+
+var is_knocked_back: bool = false
+var knockback_velocity: Vector2 = Vector2.ZERO
+var knockback_timer: float = 0.0
+
 
 # --- Ready ---
 func _ready():
@@ -56,6 +65,16 @@ func _ready():
 
 # --- Process principal ---
 func _process(delta):
+	
+	if is_knocked_back:
+		global_position += knockback_velocity * delta
+		knockback_timer -= delta
+		if knockback_timer <= 0:
+			is_knocked_back = false
+	else:
+		
+		input()
+		
 	get_cold()
 	handle_chimney_interaction()
 
@@ -73,7 +92,10 @@ func _process(delta):
 		snow_effect.visible = false
 
 	was_cold = is_cold
-	input()
+
+
+
+
 
 
 
@@ -87,7 +109,7 @@ func handle_chimney_interaction():
 		var now = Time.get_ticks_msec() / 1000.0
 		if now - last_wood_time >= wood_cooldown:
 			if Global.wood_stock > 0:
-				Global.heat_stock +=1
+				Global.heat_stock +=5
 				var wood = wood_scene.instantiate()
 				get_parent().add_child(wood)
 				wood.z_index = 20
@@ -150,6 +172,9 @@ func _on_attack_cooldown_timeout():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("chimney"):
 		near_chimney = true
+	if area.is_in_group("damage"):
+		apply_knockback(area.global_position)
+		print("je prend des dégats")
 
 
 func _on_area_2d_area_exited(area):
@@ -162,6 +187,13 @@ func get_cold():
 	if data : 
 		is_cold = data.get_custom_data("cold")
 		
+func apply_knockback(source_position: Vector2):
+	# Calcul de la direction du knockback (du coup vers le joueur)
+	var direction = (global_position - source_position).normalized()
+	knockback_velocity = direction * knockback_force
+
+	is_knocked_back = true
+	knockback_timer = knockback_duration
 
 
 	
