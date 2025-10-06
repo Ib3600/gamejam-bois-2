@@ -2,14 +2,15 @@ extends Node2D
 
 var wood_stock = 0
 var food_stock = 0
-var money_stock = 0
+
 var heat_stock = 0.0
+var money = 0
 var heat_timer: Timer
 
 func _ready():
 	wood_stock = 10
 	food_stock = 0
-	money_stock = 0
+	money = 0
 	heat_stock = 20.0
 
 	heat_timer = Timer.new()

@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6wio4w3hbb12"]
+
+[ext_resource type="Script" uid="uid://b0c6k0keeki2a" path="res://scripts/personnages/fee.gd" id="1_sfkfk"]
+[ext_resource type="Texture2D" uid="uid://ct0774f82gjic" path="res://assets/characters/pantin/1-Sheet-export.png" id="2_sfkfk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgmde"]
+atlas = ExtResource("2_sfkfk")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb27l"]
+atlas = ExtResource("2_sfkfk")
+region = Rect2(2048, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kw6o"]
+atlas = ExtResource("2_sfkfk")
+region = Rect2(4096, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up0p8"]
+atlas = ExtResource("2_sfkfk")
+region = Rect2(6144, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c00g4"]
+atlas = ExtResource("2_sfkfk")
+region = Rect2(8192, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwflh"]
+atlas = ExtResource("2_sfkfk")
+region = Rect2(10240, 0, 2048, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gy675"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgmde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb27l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kw6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up0p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c00g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwflh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujlal"]
+radius = 249.0
+height = 814.0
+
+[node name="fee" type="StaticBody2D"]
+script = ExtResource("1_sfkfk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gy675")
+frame_progress = 0.585462
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-97, 171)
+shape = SubResource("CapsuleShape2D_ujlal")

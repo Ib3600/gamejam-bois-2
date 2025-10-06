@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://3tsu868g47ji"]
+[gd_scene load_steps=23 format=4 uid="uid://3tsu868g47ji"]
 
 [ext_resource type="PackedScene" uid="uid://cnliopt31nns1" path="res://scenes/personnages/fee.tscn" id="1_c1pb6"]
 [ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="1_yaxhf"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://buvmu5fekpmd7" path="res://scenes/ui/ui.tscn" id="6_rt2n2"]
 [ext_resource type="PackedScene" uid="uid://1vagkgo2wl3" path="res://scenes/chimney.tscn" id="10_6wevv"]
 [ext_resource type="PackedScene" uid="uid://c20p6vgln3v5b" path="res://scenes/personnages/marchand.tscn" id="11_e1cbu"]
+[ext_resource type="PackedScene" uid="uid://bosvpkft6qd33" path="res://scenes/enemy/enemy.tscn" id="13_4w45t"]
+[ext_resource type="PackedScene" uid="uid://c6wio4w3hbb12" path="res://scenes/personnages/pantin.tscn" id="13_r6p65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfovw"]
 texture = ExtResource("1_yaxhf")
@@ -442,7 +444,7 @@ _data = {
 &"fade_out": SubResource("Animation_r6p65")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="world" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -529,3 +531,12 @@ position = Vector2(2, 2)
 [node name="shopkeeper" parent="environment/npcs" instance=ExtResource("11_e1cbu")]
 y_sort_enabled = true
 position = Vector2(521, 5)
+
+[node name="fee" parent="environment/npcs" instance=ExtResource("13_r6p65")]
+position = Vector2(42, 272)
+scale = Vector2(0.05, 0.05)
+
+[node name="enemies" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="bear" parent="enemies" instance=ExtResource("13_4w45t")]

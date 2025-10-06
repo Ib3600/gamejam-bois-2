@@ -8,6 +8,7 @@ shader_parameter/VIEWPORT_SIZE = Vector2(1280, 720)
 shader_parameter/fall_speed = 0.2
 shader_parameter/opacity = 0.6
 shader_parameter/density = 8.0
+shader_parameter/pixel_size = 3.0
 
 [node name="shader_snow" type="Node2D"]
 

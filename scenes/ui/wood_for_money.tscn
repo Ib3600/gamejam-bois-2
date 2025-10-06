@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbi01a2e2eop3"]
+
+[ext_resource type="Script" uid="uid://dw74pylasgg0p" path="res://scripts/trade_script_wood.gd" id="1_1ex3a"]
+[ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="2_b0wox"]
+[ext_resource type="Texture2D" uid="uid://45oayaw11ko8" path="res://assets/gold.png" id="3_cdnuv"]
+
+[node name="TextureRect" type="ColorRect"]
+anchors_preset = -1
+anchor_left = 0.017
+anchor_right = 0.201
+anchor_bottom = 0.134
+offset_left = 49.416
+offset_top = 20.0
+offset_right = 0.447998
+offset_bottom = 0.167999
+color = Color(0, 0, 0, 0.443137)
+script = ExtResource("1_1ex3a")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 5.0
+offset_right = 48.0
+offset_bottom = 54.0
+text = "5
+"
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = 98.0
+offset_right = 114.0
+offset_bottom = 49.0
+text = "1
+"
+
+[node name="wood" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(36, 47)
+texture = ExtResource("2_b0wox")
+
+[node name="Button" type="Button" parent="wood"]
+offset_left = 22.0
+offset_top = -44.0
+offset_right = 81.0
+offset_bottom = -13.0
+text = "TRADE"
+
+[node name="gold" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(137, 45)
+texture = ExtResource("3_cdnuv")
+
+[node name="arrow" type="Polygon2D" parent="."]
+position = Vector2(28, 26)
+scale = Vector2(0.560764, 0.560764)
+polygon = PackedVector2Array(57.065, 28.5325, 57.065, 49.9319, 136, 50, 136, 62, 162, 37, 135, 14, 135, 29)
+
+[connection signal="pressed" from="wood/Button" to="." method="_on_button_pressed"]
