@@ -1,6 +1,21 @@
 [gd_scene load_steps=6 format=4 uid="uid://3tsu868g47ji"]
 
 [ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="1_yaxhf"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://bfnjd8y7e3d7j" path="res://scenes/personnages/fee_malefique.tscn" id="2_6wevv"]
+[ext_resource type="Texture2D" uid="uid://chhyi33fnburt" path="res://assets/sloppymess_3.png" id="2_7ykc4"]
+[ext_resource type="PackedScene" uid="uid://v45i8xmwiev" path="res://scenes/player.tscn" id="2_pw63i"]
+[ext_resource type="PackedScene" uid="uid://wjb1wexs7mog" path="res://scenes/shader_test/shader_test.tscn" id="4_mngbo"]
+[ext_resource type="PackedScene" uid="uid://cj5ri2m5s0mvp" path="res://scenes/tree.tscn" id="4_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://b06hcq8ecr0ra" path="res://assets/blue_wood.png" id="5_c16ls"]
+[ext_resource type="Script" path="res://scenes/follow_player.gd" id="5_gubc5"]
+[ext_resource type="PackedScene" uid="uid://buvmu5fekpmd7" path="res://scenes/ui/ui.tscn" id="6_rt2n2"]
+[ext_resource type="PackedScene" uid="uid://1vagkgo2wl3" path="res://scenes/chimney.tscn" id="10_6wevv"]
+[ext_resource type="PackedScene" uid="uid://c20p6vgln3v5b" path="res://scenes/personnages/marchand.tscn" id="11_e1cbu"]
+[ext_resource type="PackedScene" uid="uid://bosvpkft6qd33" path="res://scenes/enemy/enemy.tscn" id="13_4w45t"]
+[ext_resource type="PackedScene" uid="uid://c6wio4w3hbb12" path="res://scenes/personnages/pantin.tscn" id="13_r6p65"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfovw"]
 texture = ExtResource("1_yaxhf")
