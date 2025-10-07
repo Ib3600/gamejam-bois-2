@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bosvpkft6qd33"]
+[gd_scene load_steps=31 format=3 uid="uid://bosvpkft6qd33"]
 
 [ext_resource type="Texture2D" uid="uid://d377o5ql0a6pw" path="res://assets/enemies/ours.png" id="1_4a83h"]
 [ext_resource type="Script" uid="uid://b7y47wuj2n4a2" path="res://scenes/enemy/bear.gd" id="1_a3pup"]
@@ -100,7 +100,7 @@ region = Rect2(4000, 0, 1000, 1000)
 [sub_resource type="SpriteFrames" id="SpriteFrames_prup0"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_a3pup")
 }, {
 "duration": 1.0,
@@ -112,7 +112,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gl05p")
 }, {
-"duration": 5.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_cwlon")
 }, {
 "duration": 1.0,
@@ -194,12 +194,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4a83h"]
-radius = 129.004
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_tjssy"]
-points = PackedVector2Array(-150, -153, 94.9999, -128, 125, 32, -25.0001, 142, -260, 107, -200, -113)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_40wdo"]
 radius = 1500.0
 
@@ -207,7 +201,6 @@ radius = 1500.0
 radius = 2500.0
 
 [node name="bear" type="Area2D"]
-scale = Vector2(0.2, 0.2)
 script = ExtResource("1_a3pup")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -216,18 +209,29 @@ sprite_frames = SubResource("SpriteFrames_prup0")
 animation = &"attack"
 frame = 4
 frame_progress = 0.394285
+flip_h = true
 
 [node name="hurtbox_bite" type="Area2D" parent="." groups=["damage"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_bite"]
-position = Vector2(88, -40)
-shape = SubResource("CircleShape2D_4a83h")
+[node name="left" type="CollisionPolygon2D" parent="hurtbox_bite"]
+position = Vector2(86, -47)
+rotation = 1.04413
+polygon = PackedVector2Array(-202.2, 150.798, -262.696, 179.244, -238.894, 213.906, -190.563, 236.224, -178.399, 235.199, -133.084, 262.705, -64.7679, 266.567, 2.40393, 224.651, 37.0068, 159.171, 34.4564, 85.9695, -2.31374, 43.7681, -62.7477, 14.4127, -44.6736, 19.1381, -52.1705, -39.5884, -68.717, -33.0148, -106.934, -80.6848, -170.046, -17.8998, -180.742, 2.48604, -167.736, 37.8107, -146.265, 52.6087, -187.441, 101.542)
+
+[node name="right" type="CollisionPolygon2D" parent="hurtbox_bite"]
+position = Vector2(-86, -47)
+rotation = 1.04413
+polygon = PackedVector2Array(23.0495, -244.554, 7.65106, -291.68, 22.408, -291.197, 25.5256, -326.401, 48.2839, -317.795, 52.7276, -331.406, 90.6849, -315.119, 123.997, -274.929, 167.161, -241.734, 197.819, -194.989, 201.175, -162.962, 197.011, -104.075, 160.961, -44.0636, 109.894, -15.9188, 44.171, -18.2736, 0.363754, -48.3722, -68.054, -22.2184, -68.2144, -33.8792, -131.363, -48.6185, -125.351, -72.8848, -138.318, -80.4246, -112.824, -122.282, -117.005, -127.027, -78.1209, -168.039, -28.804, -161.342)
 
 [node name="hitbox_bite" type="Area2D" parent="."]
 
-[node name="hitbox2" type="CollisionShape2D" parent="hitbox_bite"]
+[node name="right" type="CollisionPolygon2D" parent="hitbox_bite"]
 position = Vector2(120, -62)
-shape = SubResource("ConvexPolygonShape2D_tjssy")
+polygon = PackedVector2Array(-85, -87, -87, -126, -156, -155, -154, -141, -206, -146, -233, -125, -230, -52, -170, -10, -173, 26, -252, 79, -288, 115, -230, 105, -143, 111, -95, 134, -8, 131, 46, 105, 82, 58, 108, -7, 95, -22, 118, -70, 96, -134, 51, -122, 17, -97, -26, -104)
+
+[node name="left" type="CollisionPolygon2D" parent="hitbox_bite"]
+position = Vector2(120, -62)
+polygon = PackedVector2Array(-332, -128, -356, -66, -304, 108, -191, 136, -115, 122, 2, 106, -13, 69, -67, 31, -70, -10, -1, -63, -25, -160, -142, -155, -159, -92, -254, -95, -295, -131)
 
 [node name="detect_zone" type="CollisionShape2D" parent="."]
 visible = false

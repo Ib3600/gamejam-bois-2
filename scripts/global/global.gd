@@ -3,6 +3,7 @@ extends Node2D
 var wood_stock = 0
 var food_stock = 0
 
+var dialogue:bool
 var heat_stock = 0.0
 var money = 0
 var heat_timer: Timer

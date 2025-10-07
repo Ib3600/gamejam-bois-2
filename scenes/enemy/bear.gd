@@ -6,14 +6,12 @@ var food_scene = preload("res://scenes/food_item.tscn")
 @export var attack_cooldown: float = 3.0
 @export var move_speed: float = 120.0
 @export var acceleration: float = 4.0
-@export var slowdown_distance: float = 100.0
+@export var slowdown_distance: float = 60.0
 @export var burry_chance: float = 0.5
 @export var impact_frame_bite: int = 4
 @export var health: int = 3
 @export var food_drop: int = 3
 
-@onready var x_flip_hurtbox_bite: float = $hurtbox_bite.position.x
-@onready var x_flip_hitbox_bite: float = $hitbox_bite.position.x
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $attackCooldown
 @onready var hurtbox_bite: Node = $hurtbox_bite
@@ -25,14 +23,13 @@ var can_attack: bool = true
 var has_seen_player: bool = false
 var is_attacking: bool = false
 var facing_right: bool = true
-var is_dead: bool = false   # ✅ protection contre double exécution
+var is_dead: bool = false
 
 
 func _ready():
 	anim.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	anim.connect("frame_changed", Callable(self, "_on_frame_changed"))
-	_set_hitboxes_disabled(true)
-	_set_hurtboxes_disabled(true)
+	_disable_all_collisions()
 	anim.play("default")
 
 
@@ -50,18 +47,18 @@ func _process(delta):
 	var to_player = target.global_position - global_position
 	var distance = to_player.length()
 
+	# --- Gestion du flip ---
 	if to_player.x > 0 and not facing_right:
 		_flip_direction(true)
 	elif to_player.x < 0 and facing_right:
 		_flip_direction(false)
 
-	if distance > 10:
+	# --- Déplacement ---
+	if distance > 40:
 		var dir = to_player.normalized()
 		var target_speed = move_speed
-
 		if distance < slowdown_distance:
 			target_speed *= clamp(distance / slowdown_distance, 0.2, 1.0)
-
 		var current_speed = velocity.length()
 		var new_speed = lerp(current_speed, target_speed, delta * acceleration)
 		velocity = dir * new_speed
@@ -75,12 +72,11 @@ func _process(delta):
 			perform_attack()
 
 
-# --- Mort unique ---
+# --- Mort ---
 func die():
 	if is_dead:
 		return
 	is_dead = true
-
 	spawn_particles()
 	await spawn_food(food_drop)
 	queue_free()
@@ -90,10 +86,6 @@ func die():
 func _flip_direction(face_right: bool):
 	facing_right = face_right
 	anim.flip_h = not face_right
-
-	var dir = 1 if face_right else -1
-	hurtbox_bite.position.x = abs(x_flip_hurtbox_bite) * dir
-	hitbox_bite.position.x = abs(x_flip_hitbox_bite) * dir
 
 
 # --- Détection du joueur ---
@@ -128,12 +120,31 @@ func perform_attack():
 # --- Frame d’impact ---
 func _on_frame_changed():
 	if anim.animation == "attack":
-		var active := (anim.frame == impact_frame_bite)
-		_set_hitboxes_disabled(!active)
-		_set_hurtboxes_disabled(!active)
+		var active = (anim.frame == impact_frame_bite)
+		_set_side_collisions("hitbox_bite", active)
+		_set_side_collisions("hurtbox_bite", active)
 	else:
-		_set_hitboxes_disabled(true)
-		_set_hurtboxes_disabled(true)
+		_disable_all_collisions()
+
+
+# --- Gestion des collisions par côté ---
+func _set_side_collisions(area_name: String, active: bool):
+	var area = get_node(area_name)
+	for child in area.get_children():
+		if child is CollisionPolygon2D:
+			if facing_right and child.name == "right":
+				child.disabled = not active
+			elif not facing_right and child.name == "left":
+				child.disabled = not active
+			else:
+				child.disabled = true
+
+
+func _disable_all_collisions():
+	for area in [hitbox_bite, hurtbox_bite]:
+		for child in area.get_children():
+			if child is CollisionPolygon2D:
+				child.disabled = true
 
 
 # --- Fin d’animation ---
@@ -142,8 +153,7 @@ func _on_animation_finished():
 		"attack", "burry_attack":
 			is_attacking = false
 			can_attack = true
-			_set_hitboxes_disabled(true)
-			_set_hurtboxes_disabled(true)
+			_disable_all_collisions()
 			if target:
 				anim.play("move")
 			else:
@@ -155,18 +165,6 @@ func _on_animation_finished():
 func _on_attack_cooldown_timeout():
 	can_attack = true
 	is_attacking = false
-
-
-# --- Utilitaires ---
-func _set_hitboxes_disabled(state: bool):
-	for child in hitbox_bite.get_children():
-		if child is CollisionShape2D:
-			child.disabled = state
-
-func _set_hurtboxes_disabled(state: bool):
-	for child in hurtbox_bite.get_children():
-		if child is CollisionShape2D:
-			child.disabled = state
 
 
 # --- Dégâts ---

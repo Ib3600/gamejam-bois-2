@@ -7,5 +7,6 @@ func _ready():
 	pass
 	
 func _process(delta):
-	position = player.global_position
+	if player : 
+		position = player.global_position
 	
