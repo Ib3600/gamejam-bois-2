@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://de8ocltrj02fo"]
 
-[ext_resource type="Script" uid="uid://bxjfoaqfm16ye" path="res://scenes/textbox.gd" id="1_3xmdk"]
-[ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="1_nyk3b"]
-[ext_resource type="Texture2D" uid="uid://4immmyl86ylq" path="res://assets/dialogue/fairy_dialogue.png" id="3_g5d5p"]
+[ext_resource type="Script" uid="uid://45pya60rwvua" path="res://scenes/textbox.gd" id="1_3xmdk"]
+[ext_resource type="FontFile" path="res://assets/fonts/Born2bSportyV2.ttf" id="1_nyk3b"]
+[ext_resource type="Texture2D" path="res://assets/dialogue/fairy_dialogue.png" id="3_g5d5p"]
 [ext_resource type="Texture2D" uid="uid://5117hp4xj5f1" path="res://assets/characters/marchand_parle.png" id="4_qagdh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsew3"]
