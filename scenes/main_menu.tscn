@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3dedp27c2xr6"]
+[gd_scene load_steps=9 format=3 uid="uid://jcnoyy7q1yo8"]
 
+[ext_resource type="Script" uid="uid://c7143inwmv8ea" path="res://scripts/menu/main_menu.gd" id="1_8ln24"]
 [ext_resource type="PackedScene" uid="uid://wjb1wexs7mog" path="res://scenes/shader_test/shader_test.tscn" id="1_bqqt6"]
 [ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="1_l6cm7"]
 [ext_resource type="FontFile" uid="uid://f2pc65f8plvo" path="res://assets/fonts/ka1.ttf" id="1_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dfh8jn5py75t1" path="res://assets/wood sliding bg4.png" id="2_ekxnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.960351, 0.960351, 0.960351, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
 bg_color = Color(1, 1, 1, 1)
@@ -25,6 +29,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_8ln24")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -61,11 +67,13 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 
 [node name="startGame" type="Button" parent="VBoxContainer"]
+z_index = 40
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 text = "START GAME "
 
@@ -86,4 +94,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+
+[connection signal="pressed" from="VBoxContainer/startGame" to="." method="_on_start_game_pressed"]

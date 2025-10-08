@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://v45i8xmwiev"]
+[gd_scene load_steps=18 format=3 uid="uid://v45i8xmwiev"]
 
 [ext_resource type="Script" uid="uid://t8j2etc8y10u" path="res://scenes/player.gd" id="1_1cac0"]
 [ext_resource type="Texture2D" uid="uid://j0b1tteegpit" path="res://assets/characters/woodycharacter.png" id="1_pd8f7"]
-[ext_resource type="Script" uid="uid://tx7lnvevxtd8" path="res://scripts/ui/player_heat_bar.gd" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6863"]
 atlas = ExtResource("1_pd8f7")
@@ -117,19 +116,8 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rbax"]
 size = Vector2(23, 30.25)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2els"]
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
-bg_color = Color(0.975942, 0.385555, 0.140417, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
 [node name="Node2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1cac0")
-in_scene = false
 moveSpeed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -159,17 +147,6 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, 7)
 shape = SubResource("CapsuleShape2D_efjxe")
-
-[node name="heat_bar" type="ProgressBar" parent="."]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 11.0
-offset_bottom = -12.0
-theme_override_styles/background = SubResource("StyleBoxFlat_g2els")
-theme_override_styles/fill = SubResource("StyleBoxFlat_qhqgy")
-value = 50.0
-show_percentage = false
-script = ExtResource("3_qhqgy")
 
 [connection signal="timeout" from="swordAttack/attackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

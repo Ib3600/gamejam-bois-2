@@ -2,6 +2,8 @@ extends Area2D
 
 var particle_scene = preload("res://scenes/particles/mob_dying.tscn")
 var food_scene = preload("res://scenes/food_item.tscn")
+#gestion de la mort : 
+
 
 @export var attack_cooldown: float = 3.0
 @export var move_speed: float = 120.0

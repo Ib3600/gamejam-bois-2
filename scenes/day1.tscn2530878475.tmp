@@ -1,6 +1,5 @@
-[gd_scene load_steps=29 format=4 uid="uid://c460ydaksejij"]
+[gd_scene load_steps=26 format=4 uid="uid://c460ydaksejij"]
 
-[ext_resource type="Script" uid="uid://312rfuxo8g3h" path="res://scripts/days/day_1.gd" id="1_6oin1"]
 [ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="1_um3ku"]
 [ext_resource type="Texture2D" uid="uid://chhyi33fnburt" path="res://assets/sloppymess_3.png" id="2_a15iy"]
 [ext_resource type="Texture2D" uid="uid://b06hcq8ecr0ra" path="res://assets/blue_wood.png" id="3_6oin1"]
@@ -16,8 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://c6wio4w3hbb12" path="res://scenes/personnages/pantin.tscn" id="13_331e4"]
 [ext_resource type="PackedScene" uid="uid://bosvpkft6qd33" path="res://scenes/enemy/enemy.tscn" id="14_das64"]
 [ext_resource type="PackedScene" uid="uid://roql8td538ad" path="res://scenes/particles/snow_barrier.tscn" id="15_a15iy"]
-[ext_resource type="PackedScene" uid="uid://de8ocltrj02fo" path="res://scenes/textbox.tscn" id="17_femew"]
-[ext_resource type="PackedScene" uid="uid://bpkuynt7c8t3" path="res://scenes/oven.tscn" id="18_0ugl3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfovw"]
 texture = ExtResource("1_um3ku")
@@ -455,7 +452,6 @@ size = Vector2(168, 1917)
 size = Vector2(2670, 77)
 
 [node name="world" type="Node2D"]
-script = ExtResource("1_6oin1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -494,9 +490,8 @@ offset_top = -133.0
 offset_right = -200.0
 offset_bottom = -93.0
 
-[node name="ui" parent="Camera2D/Control" node_paths=PackedStringArray("dayTimer") instance=ExtResource("5_0ugl3")]
+[node name="ui" parent="Camera2D/Control" instance=ExtResource("5_0ugl3")]
 z_index = 50
-dayTimer = NodePath("../../../dayTimer")
 
 [node name="chimney" parent="." instance=ExtResource("7_oa5aw")]
 z_index = 15
@@ -517,12 +512,15 @@ y_sort_enabled = true
 [node name="player" parent="environment" node_paths=PackedStringArray("cold_overlay", "snow_effect", "cold_animator", "tilemap", "fire") instance=ExtResource("8_lqmux")]
 y_sort_enabled = true
 position = Vector2(566, 293)
-in_scene = true
+in_scene = null
 cold_overlay = NodePath("../../Camera2D/ColorRect2")
 snow_effect = NodePath("../../Camera2D/shader_snow")
 cold_animator = NodePath("../../Camera2D/ColorRect2/AnimationPlayer")
 tilemap = NodePath("../../TileMapLayer")
 fire = NodePath("../../chimney/chimney/firePosition")
+wood_cooldown = null
+knockback_force = null
+knockback_duration = null
 
 [node name="trees2" type="Node2D" parent="environment"]
 z_index = 1
@@ -624,15 +622,3 @@ position = Vector2(1877, 203)
 emission_rect_extents = Vector2(100, 1000)
 scale_amount_min = 5.0
 scale_amount_max = 10.0
-
-[node name="TextBox" parent="." instance=ExtResource("17_femew")]
-
-[node name="dayTimer" type="Timer" parent="."]
-wait_time = 240.0
-
-[node name="oven" parent="." instance=ExtResource("18_0ugl3")]
-y_sort_enabled = true
-position = Vector2(832, 389)
-scale = Vector2(0.4, 0.4)
-
-[connection signal="timeout" from="dayTimer" to="." method="_on_day_timer_timeout"]

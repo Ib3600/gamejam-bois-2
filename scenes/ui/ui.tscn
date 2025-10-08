@@ -1,85 +1,128 @@
-[gd_scene load_steps=9 format=3 uid="uid://buvmu5fekpmd7"]
+[gd_scene load_steps=11 format=3 uid="uid://buvmu5fekpmd7"]
 
-[ext_resource type="Script" uid="uid://bjg1qrysqhj7h" path="res://scripts/global/global.gd" id="1_u7n8c"]
 [ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="2_aac20"]
 [ext_resource type="Script" uid="uid://86xdq6cix3e2" path="res://scripts/ui/wood_counter.gd" id="3_g5kmx"]
+[ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="3_y220t"]
 [ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="4_0dwhk"]
 [ext_resource type="PackedScene" uid="uid://vykma6ehhcnd" path="res://scenes/ui/heat_bar.tscn" id="4_g5kmx"]
 [ext_resource type="Texture2D" uid="uid://45oayaw11ko8" path="res://assets/gold.png" id="5_pfayw"]
 [ext_resource type="PackedScene" uid="uid://npr5cdbp0vyb" path="res://scenes/particles/health_bar.tscn" id="7_7vp6q"]
+[ext_resource type="Script" uid="uid://d0wigdm0arrv1" path="res://scripts/health_bar.gd" id="8_jcn1r"]
+[ext_resource type="Script" uid="uid://cxtgmmhplfcat" path="res://scripts/ui/chrono.gd" id="10_4kltc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aac20"]
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("3_y220t")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_u7n8c")
+script = ExtResource("10_4kltc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 120.0
 offset_bottom = 53.0
 
-[node name="wood" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(253, 20)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="wood" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(210, 18)
 scale = Vector2(0.427083, 0.427083)
 texture = ExtResource("2_aac20")
 
-[node name="Label" type="Label" parent="MarginContainer/wood"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/wood"]
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 1.125
 anchor_top = 0.312
 anchor_right = 2.646
 anchor_bottom = 1.0
-offset_left = -117.22
-offset_top = -40.7321
-offset_right = -117.228
-offset_bottom = -24.7561
+offset_left = -105.512
+offset_top = -29.0248
+offset_right = -105.52
+offset_bottom = -13.0488
 scale = Vector2(2.14087, 2.14087)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
 text = "10"
 label_settings = SubResource("LabelSettings_aac20")
 script = ExtResource("3_g5kmx")
 label_name = "wood"
+metadata/_edit_use_anchors_ = true
 
-[node name="food" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(185, 19)
+[node name="food" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(173, 17)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_0dwhk")
 
-[node name="Label" type="Label" parent="MarginContainer/food"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/food"]
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 1.187
 anchor_top = 0.187
 anchor_right = 3.553
 anchor_bottom = 1.26
-offset_left = -449.92
-offset_top = -149.92
-offset_right = -742.48
-offset_bottom = -282.6
-scale = Vector2(9.83411, 9.83411)
+offset_left = -429.92
+offset_top = -79.92
+offset_right = -787.48
+offset_bottom = -208.6
+scale = Vector2(9.14867, 9.14867)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_y220t")
 text = "10"
-label_settings = SubResource("LabelSettings_aac20")
 script = ExtResource("3_g5kmx")
 label_name = "food"
 
-[node name="money" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(128, 19)
+[node name="money" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(131, 19)
 scale = Vector2(0.601852, 0.601852)
 texture = ExtResource("5_pfayw")
 
-[node name="Label" type="Label" parent="MarginContainer/money"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/money"]
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 1.241
 anchor_top = 0.056
 anchor_right = 3.006
 anchor_bottom = 0.852
-offset_left = -75.0454
-offset_top = -19.7889
-offset_right = -71.7005
-offset_bottom = -18.2809
-scale = Vector2(1.4669, 1.4669)
+offset_left = -66.7378
+offset_top = -13.1428
+offset_right = -63.3929
+offset_bottom = -11.6348
+scale = Vector2(1.57585, 1.57585)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_y220t")
 text = "10"
-label_settings = SubResource("LabelSettings_aac20")
 script = ExtResource("3_g5kmx")
 label_name = "money"
+
+[node name="Timer" type="Node2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(123, 42)
+
+[node name="time" type="Label" parent="MarginContainer/HBoxContainer/Timer"]
+texture_filter = 1
+offset_left = 104.0
+offset_top = -31.0
+offset_right = 144.0
+offset_bottom = -8.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_y220t")
+text = "02:45"
 
 [node name="heat_bar" parent="." instance=ExtResource("4_g5kmx")]
 offset_left = 4.0
@@ -92,3 +135,5 @@ offset_top = 38.0
 offset_right = 64.0
 offset_bottom = 78.0
 scale = Vector2(1.85148, 1.85148)
+min_value = 20.0
+script = ExtResource("8_jcn1r")

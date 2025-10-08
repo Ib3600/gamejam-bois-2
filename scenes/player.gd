@@ -6,17 +6,32 @@ var is_attacking: bool
 var can_attack: bool
 var x_sword_offset
 var cell
-var is_taking_damage: bool = false  # ✅ bloque les autres animations pendant les dégâts
+var is_taking_damage: bool = false  
+@export var in_scene: bool = true
+@export var base_cold_loss: float = 6
 
-# --- Gestion du shader du froid ---
+#gestion de la mort 
+
+var particle_scene = preload("res://scenes/particles/mob_dying.tscn")
+var is_dead: bool = false
+
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+# --- Gestion du froid ---
 @export var cold_overlay: ColorRect
 @export var snow_effect: Node2D
 @export var cold_animator: AnimationPlayer
 var was_cold = false
-
 var is_cold: bool = false
-var _last_cold: bool = false
-var _cold_tween: Tween
+var cold_timer := 0.0
+var heat_regen_rate := 10  # points par seconde
+
+
+@export var cold_damage_interval: float = 3.0   # toutes les 3 s à 0 de chaleur
+@export var cold_damage_amount: int = 10        # -10 PV par tick
+var cold_damage_timer: float = 0.0              # compte à rebours interne
+var _was_above_zero_heat: bool = true           # pour détecter le passage à 0
+
 
 # --- Références scène ---
 @export var tilemap: TileMapLayer
@@ -45,12 +60,13 @@ var knockback_timer: float = 0.0
 
 # --- READY ---
 func _ready():
-	if snow_effect : 
-		snow_effect.visible = false
+	Global.register_player(self)
 	if fire:
 		fire_position = fire.global_position
 	else:
 		push_warning("firePosition not found in tree")
+	if snow_effect:
+		snow_effect.visible = false
 	swordCollision = $swordAttack/Area2D/swordCollision
 	swordCollision.disabled = true
 	swordArea = $swordAttack/Area2D
@@ -62,17 +78,50 @@ func _ready():
 
 # --- PROCESS ---
 func _process(delta):
+
+	
+	# --- Vérifie la mort ---
+	if not is_dead and Global.player_hp <= 20:
+		die()
+		return  # on quitte tout de suite le process une fois mort
+
+	# Si déjà mort, on ne fait plus rien
+	if is_dead:
+		return
+
+	
+	if Global.player_heat <= 0.0:
+		# si on vient juste de tomber à 0, on lance un délai de 3 s avant le 1er tick
+		if _was_above_zero_heat:
+			cold_damage_timer = cold_damage_interval
+			_was_above_zero_heat = false
+		else:
+			cold_damage_timer -= delta
+			if cold_damage_timer <= 0.0:
+				Global.player_hp -= cold_damage_amount
+				# Optionnel : feedback visuel
+				play_damage_animation()
+				# relance le prochain tick dans 3 s
+				cold_damage_timer = cold_damage_interval
+	else:
+		# on régénère ou on est au-dessus de 0 → reset du flag et du timer
+		_was_above_zero_heat = true
+		cold_damage_timer = 0.0
+		
+		
 	if is_knocked_back:
 		global_position += knockback_velocity * delta
 		knockback_timer -= delta
 		if knockback_timer <= 0:
 			is_knocked_back = false
-	elif not is_taking_damage:  # ✅ bloque les entrées pendant l’animation de dégâts
+	elif not is_taking_damage:
 		input()
 		
 	get_cold()
 	handle_chimney_interaction()
+	handle_heat(delta)  
 
+	# Animation du froid
 	if is_cold and not was_cold:
 		cold_animator.play("fade_in")
 		snow_effect.visible = true
@@ -81,6 +130,22 @@ func _process(delta):
 		snow_effect.visible = false
 
 	was_cold = is_cold
+
+# --- Gestion de la chaleur ---
+func handle_heat(delta: float) -> void:
+	if not in_scene:
+		return
+
+	if is_cold:
+		var perte_par_sec:float
+		perte_par_sec = max(0.0, base_cold_loss - Global.niveau_manteau)
+		Global.player_heat -= perte_par_sec * delta
+	else:
+		# (Option) ne régénérer que si on n’est pas déjà au max
+		if Global.player_heat < 100.0:
+			Global.player_heat += heat_regen_rate * delta
+
+	Global.player_heat = clamp(Global.player_heat, 0.0, 100.0)
 
 # --- Interaction cheminée ---
 func handle_chimney_interaction():
@@ -106,6 +171,13 @@ func handle_chimney_interaction():
 
 # --- Déplacements / Attaque ---
 func input():
+	# Bloque toute entrée pendant un dialogue
+	if Global.dialogue or is_dead:
+		velocity = Vector2.ZERO
+		if not is_taking_damage:
+			$AnimatedSprite2D.play("idle")
+		return
+
 	if (Input.is_action_just_pressed("hit") or is_attacking) and not near_chimney:
 		attack()
 	else:
@@ -113,7 +185,7 @@ func input():
 		velocity = direction.normalized() * moveSpeed
 
 		if direction != Vector2.ZERO:
-			if not is_taking_damage:  # ✅ évite de relancer pendant dégâts
+			if not is_taking_damage:
 				$AnimatedSprite2D.play("run")
 		else:
 			if not is_taking_damage:
@@ -132,8 +204,11 @@ func input():
 
 		move_and_slide()
 
+
 # --- Attaque ---
 func attack():
+	if Global.dialogue or is_dead:
+		return
 	$AnimatedSprite2D.play("attack")
 	swordCollision.disabled = false
 	can_attack = false
@@ -152,7 +227,7 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("chimney"):
 		near_chimney = true
 	elif area.is_in_group("damage"):
-		print("je prends des dégâts")
+		Global.player_hp -=20
 		apply_knockback(area.global_position)
 		play_damage_animation()
 
@@ -162,11 +237,17 @@ func _on_area_2d_area_exited(area):
 		
 # --- Froid ---
 func get_cold():
-	if cell : 
-		cell = tilemap.local_to_map(position)
-		var data: TileData = tilemap.get_cell_tile_data(cell)
-		if data:
-			is_cold = data.get_custom_data("cold")
+	if not in_scene or not tilemap:
+		return
+
+	cell = tilemap.local_to_map(global_position)
+	var data: TileData = tilemap.get_cell_tile_data(cell)
+
+	if data and data.has_custom_data("cold"):
+		is_cold = data.get_custom_data("cold")
+	else:
+		is_cold = false
+
 
 # --- Knockback ---
 func apply_knockback(source_position: Vector2):
@@ -180,7 +261,43 @@ func play_damage_animation():
 	if $AnimatedSprite2D.sprite_frames.has_animation("take_damage"):
 		is_taking_damage = true
 		$AnimatedSprite2D.play("take_damage")
-		await $AnimatedSprite2D.animation_finished  # ✅ attend la fin avant de reprendre
+		await $AnimatedSprite2D.animation_finished
 		is_taking_damage = false
 	else:
 		push_warning("Animation 'take_damage' non trouvée sur AnimatedSprite2D")
+
+
+func die():
+	if is_dead:
+		return
+	is_dead = true
+
+	# Coupe tout déplacement / attaque
+	velocity = Vector2.ZERO
+	is_attacking = false
+	can_attack = false
+	is_taking_damage = false
+	is_knocked_back = false
+	knockback_velocity = Vector2.ZERO
+
+	# Désactive collisions d’attaque du joueur
+	if is_instance_valid(swordCollision):
+		swordCollision.disabled = true
+
+	# (Option) désactive la collision du corps pour ne plus gêner la physique
+	# set_deferred("collision_layer", 0)
+	# set_deferred("collision_mask", 0)
+
+	# Masque le sprite
+	if is_instance_valid(anim):
+		anim.visible = false
+
+	# Joue les particules de mort (même scène que l’ennemi)
+	spawn_death_particles()
+
+
+func spawn_death_particles():
+	var particles = particle_scene.instantiate()
+	get_parent().add_child(particles)
+	particles.global_position = global_position
+	particles.emitting = true
