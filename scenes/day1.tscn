@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="1_um3ku"]
 [ext_resource type="Texture2D" uid="uid://chhyi33fnburt" path="res://assets/sloppymess_3.png" id="2_a15iy"]
 [ext_resource type="Texture2D" uid="uid://b06hcq8ecr0ra" path="res://assets/blue_wood.png" id="3_6oin1"]
-[ext_resource type="Script" uid="uid://k1tvg6c8nl0n" path="res://scenes/follow_player.gd" id="4_femew"]
+[ext_resource type="Script" path="res://scenes/follow_player.gd" id="4_femew"]
 [ext_resource type="PackedScene" uid="uid://buvmu5fekpmd7" path="res://scenes/ui/ui.tscn" id="5_0ugl3"]
 [ext_resource type="PackedScene" uid="uid://wjb1wexs7mog" path="res://scenes/shader_test/shader_test.tscn" id="6_xga31"]
 [ext_resource type="PackedScene" uid="uid://1vagkgo2wl3" path="res://scenes/chimney.tscn" id="7_oa5aw"]

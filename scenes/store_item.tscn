@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqnwhpwra4u5y"]
+
+[ext_resource type="Script" uid="uid://wd0nht1dhrcm" path="res://scenes/store_items.gd" id="1_fpd8u"]
+[ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="2_0mtax"]
+[ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="3_ft41n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkby5"]
+bg_color = Color(0.502651, 0.664741, 0.193676, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="StoreItem" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gkby5")
+script = ExtResource("1_fpd8u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.57
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_0mtax")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Heading1" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ft41n")
+theme_override_font_sizes/font_size = 29
+text = "Heading 1"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Heading2" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ft41n")
+theme_override_font_sizes/font_size = 20
+text = "Heading 2gjhhhhjggjgjgjgj k h h h h h h  h"
+autowrap_mode = 3
+
+[node name="Buffer" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Acheter"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_tree_exited"]
