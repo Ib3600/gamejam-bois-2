@@ -73,6 +73,8 @@ var dialogues := {
 
 # --- READY ---
 func _ready():
+	if Global.sante_marchand <= 0 :
+		queue_free()
 	is_trading = false
 	anim.play("default")
 	texture_rect.visible = false

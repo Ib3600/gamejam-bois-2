@@ -70,6 +70,8 @@ var dialogues := {
 
 # --- READY ---
 func _ready():
+	if Global.sante_evil_fairy <= 0 :
+		queue_free()
 	is_talking = false
 	anim.play("default")
 

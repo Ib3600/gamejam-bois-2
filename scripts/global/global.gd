@@ -10,6 +10,10 @@ var sante_good_fairy = 100
 var sante_evil_fairy = 100
 var sante_pantin = 100
 
+var pantin_owes_wood: bool = false
+var pantin_last_talked_day: int = 0
+
+
 var axe_collected = false
 var etat_marchand =[false,false] #case 1 le froid, #case 2 la faim
 

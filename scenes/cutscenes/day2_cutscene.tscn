@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://c7l1ewe7in620"]
+[gd_scene load_steps=32 format=4 uid="uid://bg6uiyrortwc3"]
 
 [ext_resource type="Script" uid="uid://or0bno02m7mo" path="res://scripts/cutscenes/day_2_cutscene.gd" id="1_3neph"]
 [ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="2_lo5ck"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://j4wrdwlelcif"]
+[gd_scene load_steps=39 format=4 uid="uid://t5faab60mcqc"]
 
 [ext_resource type="Script" uid="uid://dga47y3vwtvw2" path="res://scripts/cutscenes/end_cutscene.gd" id="1_3k0mx"]
 [ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="2_r1w43"]
@@ -395,6 +395,90 @@ sources/0 = SubResource("TileSetAtlasSource_lfovw")
 sources/1 = SubResource("TileSetAtlasSource_pu3yx")
 sources/2 = SubResource("TileSetAtlasSource_18nlu")
 
+[sub_resource type="Animation" id="Animation_m3m6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/shader_snow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_f0pcv"]
+resource_name = "end"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1289, 1070)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D/shader_snow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBox")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.76667, 6.1, 6.6, 7.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": ["Bravo !", "nothing"],
+"method": &"queue_text"
+}, {
+"args": ["Vous avez survécu à la tempête !", "nothing"],
+"method": &"queue_text"
+}, {
+"args": ["Merci d'avoir joué !", "nothing"],
+"method": &"queue_text"
+}, {
+"args": [],
+"method": &"affichage_score"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5cdg"]
+_data = {
+&"RESET": SubResource("Animation_m3m6x"),
+&"end": SubResource("Animation_f0pcv")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5cdg"]
 atlas = ExtResource("13_1nm4k")
 region = Rect2(0, 0, 64, 48)
@@ -487,76 +571,7 @@ size = Vector2(168, 1917)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je41u"]
 size = Vector2(2670, 77)
 
-[sub_resource type="Animation" id="Animation_f0pcv"]
-resource_name = "end"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D/shader_snow:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4.98),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextBox")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(5.76667, 6.1, 6.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": ["Bravo !", "nothing"],
-"method": &"queue_text"
-}, {
-"args": ["Vous avez survécu à la tempête !", "nothing"],
-"method": &"queue_text"
-}, {
-"args": ["Merci d'avoir joué !", "nothing"],
-"method": &"queue_text"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_m3m6x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D/shader_snow:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5cdg"]
-_data = {
-&"RESET": SubResource("Animation_m3m6x"),
-&"end": SubResource("Animation_f0pcv")
-}
-
-[node name="world2" type="Node2D"]
+[node name="world5" type="Node2D"]
 script = ExtResource("1_3k0mx")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -565,13 +580,18 @@ tile_map_data = PackedByteArray("AAAHAAQAAgAAAAEAAAAHAAUAAgAAAAAAAAAHAAYAAgAAAAE
 tile_set = SubResource("TileSet_t4345")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-545, -97)
 zoom = Vector2(2.375, 2.375)
 script = ExtResource("5_jgblv")
 
 [node name="shader_snow" parent="Camera2D" instance=ExtResource("6_qw0pi")]
-position = Vector2(1345, 1043)
+position = Vector2(-256, -159)
 scale = Vector2(1, 1.37)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_g5cdg")
+}
 
 [node name="chimney" parent="." instance=ExtResource("7_jdni3")]
 z_index = 15
@@ -702,10 +722,5 @@ scale_amount_max = 10.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_g5cdg")
-}
 
 [node name="TextBox" parent="." instance=ExtResource("17_n68pw")]

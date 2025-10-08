@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b4uqdy2cfajsh"]
+[gd_scene load_steps=30 format=4 uid="uid://b4uqdy2cfajsh"]
 
 [ext_resource type="Script" uid="uid://bqva3mih82d0k" path="res://scripts/days/day_4.gd" id="1_4mbio"]
 [ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="2_nacvj"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c20p6vgln3v5b" path="res://scenes/personnages/marchand.tscn" id="17_vdkrg"]
 [ext_resource type="PackedScene" uid="uid://c6wio4w3hbb12" path="res://scenes/personnages/pantin.tscn" id="18_plutk"]
 [ext_resource type="PackedScene" uid="uid://b2viu3jamag8p" path="res://scenes/money_item.tscn" id="19_fl8jk"]
+[ext_resource type="PackedScene" uid="uid://dvtl0s156st25" path="res://scenes/upgrade_axe.tscn" id="20_nacvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfovw"]
 texture = ExtResource("2_nacvj")
@@ -690,5 +691,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bear_bound"]
 position = Vector2(5746, -2198)
 shape = SubResource("RectangleShape2D_leajx")
+
+[node name="axe" parent="." instance=ExtResource("20_nacvj")]
+position = Vector2(2385, 1149)
+
+[node name="Node2D" parent="." instance=ExtResource("19_fl8jk")]
+position = Vector2(-714, 135)
 
 [connection signal="timeout" from="dayTimer" to="." method="_on_day_timer_timeout"]

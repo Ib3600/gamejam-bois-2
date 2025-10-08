@@ -181,4 +181,4 @@ func _wait_for_dialogue_end() -> void:
 		
 func affichage_score():
 	var somme_vie_habitant = Global.sante_marchand + Global.sante_evil_fairy + Global.sante_pantin + Global.sante_good_fairy + Global.player_hp
-	queue_text("Votre score est de : " + str(somme_vie_habitant))
+	queue_text("Votre score est de : " + str(somme_vie_habitant - 20))

@@ -7,6 +7,6 @@ extends Node2D
 
 
 func _ready():
-	$AnimationPlayer.play("end")
+	$Camera2D/AnimationPlayer.play("end")
 
 	
