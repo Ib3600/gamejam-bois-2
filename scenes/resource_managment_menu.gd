@@ -2,10 +2,10 @@ extends Control
 
 # VERSION AVANCÉE: Gère à la fois l'ÉNERGIE et la NOURRITURE
 
-@onready var grid: GridContainer = $ScrollContainer/GridContainer
-@onready var energy_label: Label = $EnergyLabel
+@onready var grid: GridContainer = $PanelContainer/VBoxContainer/ScrollContainer/GridContainer
+@onready var energy_label: Label = $PanelContainer/VBoxContainer/EnergyLabel
 @onready var food_label: Label = $FoodLabel
-@onready var confirm_button: Button = $ConfirmButton
+@onready var confirm_button: Button = $PanelContainer/VBoxContainer/ConfirmButton
 @export var resource_item: PackedScene
 
 var resource_items: Dictionary = {}
