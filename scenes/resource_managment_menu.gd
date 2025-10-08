@@ -1,9 +1,3 @@
-
-
-
-
-
-"""
 extends Control
 
 # VERSION AVANCÉE: Gère à la fois l'ÉNERGIE et la NOURRITURE
@@ -231,7 +225,7 @@ func apply_resources_to_habitant(id: String, energy: float, food: int) -> void:
 			afficher_etat(nom, a_froid, a_faim)
 
 func afficher_etat(nom: String, a_froid: bool, a_faim: bool) -> void:
-	"""Affiche l'état de l'habitant dans la console"""
+	"""Affiche l'état de l'habitant dans sla console"""
 	if not a_froid and not a_faim:
 		print("  ✅ " + nom + " sera en pleine forme!")
 	else:
@@ -241,4 +235,3 @@ func afficher_etat(nom: String, a_froid: bool, a_faim: bool) -> void:
 		if a_faim:
 			problemes.append("🍖 faim")
 		print("  ⚠️ " + nom + " aura " + ", ".join(problemes))
-"""

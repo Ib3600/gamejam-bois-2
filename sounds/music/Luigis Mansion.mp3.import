@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boa2t1lmwrka7"
+path="res://.godot/imported/Luigis Mansion.mp3-3f24c6b41230e4c7bef7bf842e584d09.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/Luigis Mansion.mp3"
+dest_files=["res://.godot/imported/Luigis Mansion.mp3-3f24c6b41230e4c7bef7bf842e584d09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

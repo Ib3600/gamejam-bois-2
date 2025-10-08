@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c73okj7huxdfo"]
+
+[ext_resource type="AudioStream" uid="uid://boa2t1lmwrka7" path="res://sounds/music/Luigis Mansion.mp3" id="1_05ggv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_05ggv")
+autoplay = true
+parameters/looping = true
