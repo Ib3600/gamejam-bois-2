@@ -7,7 +7,10 @@ var sante_good_fairy
 var sante_evil_fairy
 var sante_pantin
 
-enum{faim, froid}
+var seuil_fairy = {
+	"faim":0,
+	"froid":0
+}
 
 
 # --- Ressources globales ---
