@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://t8j2etc8y10u" path="res://scenes/player.gd" id="1_1cac0"]
 [ext_resource type="Texture2D" uid="uid://j0b1tteegpit" path="res://assets/characters/woodycharacter.png" id="1_pd8f7"]
-[ext_resource type="Script" uid="uid://tx7lnvevxtd8" path="res://scripts/ui/player_heat_bar.gd" id="3_qhqgy"]
+[ext_resource type="Script" path="res://scripts/ui/player_heat_bar.gd" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6863"]
 atlas = ExtResource("1_pd8f7")

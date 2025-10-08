@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqnwhpwra4u5y"]
+[gd_scene load_steps=5 format=3 uid="uid://djpd35q5v3xev"]
 
-[ext_resource type="Script" uid="uid://wd0nht1dhrcm" path="res://scenes/store_items.gd" id="1_fpd8u"]
+[ext_resource type="Script" uid="uid://dhhswpsncbql7" path="res://scenes/resource_item.gd" id="1_c3me4"]
 [ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="2_0mtax"]
 [ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="3_ft41n"]
 
@@ -15,7 +15,7 @@ corner_radius_bottom_left = 10
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gkby5")
-script = ExtResource("1_fpd8u")
+script = ExtResource("1_c3me4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -47,7 +47,7 @@ layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Heading1" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="NomLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -58,7 +58,7 @@ text = "Heading 1"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Heading2" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="DescriptionLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
@@ -73,9 +73,21 @@ autowrap_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ControlsContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
+layout_mode = 2
+
+[node name="MinusButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
 layout_mode = 2
 text = "Acheter"
 
-[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_tree_exited"]
+[node name="PlusButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
+layout_mode = 2
+text = "Acheter"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/MinusButton" to="." method="_on_button_pressed"]
+[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/MinusButton" to="." method="_on_button_tree_exited"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/PlusButton" to="." method="_on_button_pressed"]
+[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/PlusButton" to="." method="_on_button_tree_exited"]

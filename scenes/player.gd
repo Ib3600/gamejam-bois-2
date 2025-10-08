@@ -142,15 +142,16 @@ func handle_heat(delta: float) -> void:
 		return
 
 	if is_cold:
-		var perte_par_sec:float
+		var perte_par_sec: float
 		perte_par_sec = max(0.0, base_cold_loss - Global.niveau_manteau)
 		Global.player_heat -= perte_par_sec * delta
 	else:
-		# (Option) ne régénérer que si on n’est pas déjà au max
-		if Global.player_heat < 100.0:
+		# Regenerate heat, but cap at max_player_heat (which can be upgraded)
+		if Global.player_heat < Global.max_player_heat:
 			Global.player_heat += heat_regen_rate * delta
 
-	Global.player_heat = clamp(Global.player_heat, 0.0, 100.0)
+	# Clamp to the current maximum
+	Global.player_heat = clamp(Global.player_heat, 0.0, Global.max_player_heat)
 
 # --- Interaction cheminée ---
 func handle_chimney_interaction():

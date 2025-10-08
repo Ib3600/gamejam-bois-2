@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://x1vy0u4hdwlu"]
 
-[ext_resource type="Script" uid="uid://dpexcgsupqni0" path="res://down_and_up_animation.gd" id="1_hluqm"]
+[ext_resource type="Script" path="res://down_and_up_animation.gd" id="1_hluqm"]
 [ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="2_hluqm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tkybl"]
