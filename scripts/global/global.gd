@@ -1,5 +1,15 @@
 extends Node2D
 
+
+# --- Pnj --- 
+var sante_marchand
+var sante_good_fairy
+var sante_evil_fairy
+var sante_pantin
+
+enum{faim, froid}
+
+
 # --- Ressources globales ---
 var wood_stock: int = 0
 var food_stock: int = 0

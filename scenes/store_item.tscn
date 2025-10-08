@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqnwhpwra4u5y"]
 
-[ext_resource type="Script" uid="uid://wd0nht1dhrcm" path="res://scenes/store_items.gd" id="1_fpd8u"]
+[ext_resource type="Script" path="res://scenes/store_items.gd" id="1_fpd8u"]
 [ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="2_0mtax"]
 [ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="3_ft41n"]
 

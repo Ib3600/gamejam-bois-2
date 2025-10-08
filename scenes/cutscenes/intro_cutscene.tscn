@@ -726,7 +726,7 @@ size = Vector2(168, 1917)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je41u"]
 size = Vector2(2670, 77)
 
-[node name="world" type="Node2D"]
+[node name="world2" type="Node2D"]
 script = ExtResource("1_icj2m")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
