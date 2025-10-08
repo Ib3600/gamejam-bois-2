@@ -221,5 +221,7 @@ func _on_finish_pressed():
 			get_tree().change_scene_to_file("res://scenes/day3.tscn")
 		4:
 			get_tree().change_scene_to_file("res://scenes/day4.tscn")
+		5 : 
+			get_tree().change_scene_to_file("res://scenes/day5.tscn")
 		_:
 			print("Aucune scène définie pour ce jour.")

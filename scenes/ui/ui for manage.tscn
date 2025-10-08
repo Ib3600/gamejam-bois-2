@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj4pfmyc8pa2t"]
+[gd_scene load_steps=8 format=3 uid="uid://dj4pfmyc8pa2t"]
 
 [ext_resource type="Script" uid="uid://cxtgmmhplfcat" path="res://scripts/ui/chrono.gd" id="1_l4eqe"]
 [ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="2_8wc5l"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" uid="uid://86xdq6cix3e2" path="res://scripts/ui/wood_counter.gd" id="4_racnu"]
 [ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="5_fasn3"]
 [ext_resource type="Texture2D" uid="uid://45oayaw11ko8" path="res://assets/gold.png" id="6_rkqnn"]
-[ext_resource type="PackedScene" uid="uid://npr5cdbp0vyb" path="res://scenes/particles/health_bar.tscn" id="8_ye3kf"]
-[ext_resource type="Script" uid="uid://d0wigdm0arrv1" path="res://scripts/health_bar.gd" id="9_3asq2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aac20"]
 font = ExtResource("3_ekcku")
@@ -106,12 +104,3 @@ theme_override_fonts/font = ExtResource("3_ekcku")
 text = "10"
 script = ExtResource("4_racnu")
 label_name = "money"
-
-[node name="TextureProgressBar" parent="." instance=ExtResource("8_ye3kf")]
-offset_left = 117.0
-offset_top = 27.0
-offset_right = 181.0
-offset_bottom = 67.0
-scale = Vector2(1.85148, 1.85148)
-min_value = 20.0
-script = ExtResource("9_3asq2")

@@ -341,7 +341,8 @@ store_item = ExtResource("2_atuvt")
 
 [node name="Node2D2" parent="." instance=ExtResource("3_gf6f2")]
 z_index = 15
-position = Vector2(90, -51)
+position = Vector2(-45, -62)
+scale = Vector2(2, 2)
 
 [node name="Button" type="Button" parent="."]
 z_index = 40
