@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://da6vtqjasxkkp"]
+
+[ext_resource type="PackedScene" uid="uid://djpd35q5v3xev" path="res://scenes/resource_item.tscn" id="1_sd8qg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StoreItem" parent="." instance=ExtResource("1_sd8qg")]
+layout_mode = 0
+offset_left = 607.0
+offset_top = 27.0
+offset_right = 1117.0
+offset_bottom = 197.0

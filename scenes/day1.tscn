@@ -570,7 +570,7 @@ scale_amount_max = 10.0
 [node name="dialogue" parent="." instance=ExtResource("17_femew")]
 
 [node name="dayTimer" type="Timer" parent="."]
-wait_time = 240.0
+wait_time = 10.0
 one_shot = true
 
 [node name="oven" parent="." instance=ExtResource("18_0ugl3")]

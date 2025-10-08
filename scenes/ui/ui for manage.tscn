@@ -1,24 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://buvmu5fekpmd7"]
+[gd_scene load_steps=10 format=3 uid="uid://dj4pfmyc8pa2t"]
 
-[ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="2_aac20"]
-[ext_resource type="Script" uid="uid://86xdq6cix3e2" path="res://scripts/ui/wood_counter.gd" id="3_g5kmx"]
-[ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="3_y220t"]
-[ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="4_0dwhk"]
-[ext_resource type="Texture2D" uid="uid://45oayaw11ko8" path="res://assets/gold.png" id="5_pfayw"]
-[ext_resource type="PackedScene" uid="uid://npr5cdbp0vyb" path="res://scenes/particles/health_bar.tscn" id="7_7vp6q"]
-[ext_resource type="Script" uid="uid://d0wigdm0arrv1" path="res://scripts/health_bar.gd" id="8_jcn1r"]
-[ext_resource type="Script" uid="uid://cxtgmmhplfcat" path="res://scripts/ui/chrono.gd" id="10_4kltc"]
+[ext_resource type="Script" uid="uid://cxtgmmhplfcat" path="res://scripts/ui/chrono.gd" id="1_l4eqe"]
+[ext_resource type="Texture2D" uid="uid://ldf8qqku64am" path="res://assets/Wood.png" id="2_8wc5l"]
+[ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="3_ekcku"]
+[ext_resource type="Script" uid="uid://86xdq6cix3e2" path="res://scripts/ui/wood_counter.gd" id="4_racnu"]
+[ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="5_fasn3"]
+[ext_resource type="Texture2D" uid="uid://45oayaw11ko8" path="res://assets/gold.png" id="6_rkqnn"]
+[ext_resource type="PackedScene" uid="uid://npr5cdbp0vyb" path="res://scenes/particles/health_bar.tscn" id="8_ye3kf"]
+[ext_resource type="Script" uid="uid://d0wigdm0arrv1" path="res://scripts/health_bar.gd" id="9_3asq2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aac20"]
-font = ExtResource("3_y220t")
+font = ExtResource("3_ekcku")
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Node2D2" type="Node2D"]
-script = ExtResource("10_4kltc")
-in_store = true
+script = ExtResource("1_l4eqe")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 120.0
@@ -30,9 +29,9 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="wood" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
-position = Vector2(94.125, 22.25)
+position = Vector2(198, 17)
 scale = Vector2(0.427083, 0.427083)
-texture = ExtResource("2_aac20")
+texture = ExtResource("2_8wc5l")
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/wood"]
 texture_filter = 1
@@ -52,14 +51,14 @@ theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 5
 text = "10"
 label_settings = SubResource("LabelSettings_aac20")
-script = ExtResource("3_g5kmx")
+script = ExtResource("4_racnu")
 label_name = "wood"
 metadata/_edit_use_anchors_ = true
 
 [node name="food" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
-position = Vector2(58.125, 21.25)
+position = Vector2(162, 16)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0dwhk")
+texture = ExtResource("5_fasn3")
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/food"]
 texture_filter = 1
@@ -77,15 +76,15 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("3_y220t")
+theme_override_fonts/font = ExtResource("3_ekcku")
 text = "10"
-script = ExtResource("3_g5kmx")
+script = ExtResource("4_racnu")
 label_name = "food"
 
 [node name="money" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
-position = Vector2(20.125, 22.25)
+position = Vector2(124, 17)
 scale = Vector2(0.601852, 0.601852)
-texture = ExtResource("5_pfayw")
+texture = ExtResource("6_rkqnn")
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/money"]
 texture_filter = 1
@@ -103,31 +102,16 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("3_y220t")
+theme_override_fonts/font = ExtResource("3_ekcku")
 text = "10"
-script = ExtResource("3_g5kmx")
+script = ExtResource("4_racnu")
 label_name = "money"
 
-[node name="Timer" type="Node2D" parent="MarginContainer/HBoxContainer"]
-position = Vector2(123, 42)
-
-[node name="time" type="Label" parent="MarginContainer/HBoxContainer/Timer"]
-texture_filter = 1
-offset_left = 5.0
-offset_top = -27.0
-offset_right = 45.0
-offset_bottom = -4.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("3_y220t")
-text = "02:45"
-
-[node name="TextureProgressBar" parent="." instance=ExtResource("7_7vp6q")]
-offset_top = 38.0
-offset_right = 64.0
-offset_bottom = 78.0
+[node name="TextureProgressBar" parent="." instance=ExtResource("8_ye3kf")]
+offset_left = 117.0
+offset_top = 27.0
+offset_right = 181.0
+offset_bottom = 67.0
 scale = Vector2(1.85148, 1.85148)
 min_value = 20.0
-script = ExtResource("8_jcn1r")
+script = ExtResource("9_3asq2")

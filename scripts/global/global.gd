@@ -21,12 +21,16 @@ var etat_good_fairy =[false,false]
 var etat_evil_fairy =[false,false]
 var etat_pantin =[false,false]
 
-var seuil_fairy = {
-	"faim":0,
-	"froid":0
+# --- Seuils individuels de besoins (faim et froid) ---
+var besoins_personnages = {
+	"good_fairy": {"froid": 6, "faim": 1},   # très sensible au froid, peu de nourriture
+	"evil_fairy": {"froid": 7, "faim": 1},   # même chose
+	"marchand": {"froid": 4, "faim": 3},     # géant : mange beaucoup, résiste au froid
+	"pantin": {"froid": 5, "faim": 2}        # équilibré
 }
 
-var current_day:int
+
+var current_day:int = 1
 # --- Ressources globales ---
 var wood_stock: int = 0
 var food_stock: int = 0

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djpd35q5v3xev"]
+[gd_scene load_steps=22 format=3 uid="uid://djpd35q5v3xev"]
 
 [ext_resource type="Script" uid="uid://dhhswpsncbql7" path="res://scenes/resource_item.gd" id="1_c3me4"]
-[ext_resource type="Texture2D" uid="uid://6t4fucjup2s0" path="res://assets/meat.png" id="2_0mtax"]
+[ext_resource type="Texture2D" uid="uid://cxs7o8y5h17ye" path="res://assets/characters/fee.png" id="2_krmho"]
+[ext_resource type="Texture2D" uid="uid://5117hp4xj5f1" path="res://assets/characters/marchand_parle.png" id="3_cecp1"]
 [ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="3_ft41n"]
+[ext_resource type="Texture2D" uid="uid://bgfm4uvy10jl1" path="res://assets/characters/pantin.png" id="4_cecp1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkby5"]
 bg_color = Color(0.502651, 0.664741, 0.193676, 1)
@@ -11,11 +13,138 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rgox"]
+atlas = ExtResource("2_krmho")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6occq"]
+atlas = ExtResource("2_krmho")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h48g6"]
+atlas = ExtResource("2_krmho")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0kpg"]
+atlas = ExtResource("2_krmho")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7yyr"]
+atlas = ExtResource("2_krmho")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5qqc"]
+atlas = ExtResource("2_krmho")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk4x5"]
+atlas = ExtResource("2_krmho")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh21d"]
+atlas = ExtResource("2_krmho")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4n6f"]
+atlas = ExtResource("3_cecp1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_van45"]
+atlas = ExtResource("3_cecp1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqg6b"]
+atlas = ExtResource("3_cecp1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gupew"]
+atlas = ExtResource("3_cecp1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvf3u"]
+atlas = ExtResource("3_cecp1")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr6ch"]
+atlas = ExtResource("4_cecp1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dr6ch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rgox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6occq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h48g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0kpg")
+}],
+"loop": true,
+"name": &"evil_fairy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7yyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5qqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk4x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh21d")
+}],
+"loop": true,
+"name": &"good_fairy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4n6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_van45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqg6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gupew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvf3u")
+}],
+"loop": true,
+"name": &"marchand",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"nothing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr6ch")
+}],
+"loop": true,
+"name": &"pantin",
+"speed": 5.0
+}]
+
 [node name="StoreItem" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gkby5")
 script = ExtResource("1_c3me4")
+character_name = "marchand"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -30,10 +159,13 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2"]
-layout_mode = 2
-texture = ExtResource("2_0mtax")
-stretch_mode = 3
+[node name="character" type="AnimatedSprite2D" parent="HBoxContainer/MarginContainer2"]
+z_index = 10
+texture_filter = 1
+position = Vector2(445, 79)
+scale = Vector2(3.80401, 3.80401)
+sprite_frames = SubResource("SpriteFrames_dr6ch")
+animation = &"evil_fairy"
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -58,36 +190,43 @@ text = "Heading 1"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="DescriptionLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
-texture_filter = 1
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ft41n")
-theme_override_font_sizes/font_size = 20
-text = "Heading 2gjhhhhjggjgjgjgj k h h h h h h  h"
-autowrap_mode = 3
-
 [node name="Buffer" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ControlsContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="FoodContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ValueLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
+[node name="HeatLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/FoodContainer"]
 layout_mode = 2
 
-[node name="MinusButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
+[node name="HeatMinus" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/FoodContainer"]
 layout_mode = 2
 text = "-"
 
-[node name="PlusButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
+[node name="HeatPlus" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/FoodContainer"]
 layout_mode = 2
 text = "+"
 
-[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/MinusButton" to="." method="_on_button_pressed"]
-[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/MinusButton" to="." method="_on_button_tree_exited"]
-[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/PlusButton" to="." method="_on_button_pressed"]
-[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/PlusButton" to="." method="_on_button_tree_exited"]
+[node name="HeatContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FoodLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HeatContainer"]
+layout_mode = 2
+
+[node name="FoodMinus" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HeatContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="FoodPlus" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HeatContainer"]
+layout_mode = 2
+text = "+"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/FoodContainer/HeatMinus" to="." method="_on_button_pressed"]
+[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/FoodContainer/HeatMinus" to="." method="_on_button_tree_exited"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/FoodContainer/HeatPlus" to="." method="_on_button_pressed"]
+[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/FoodContainer/HeatPlus" to="." method="_on_button_tree_exited"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HeatContainer/FoodMinus" to="." method="_on_button_pressed"]
+[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/HeatContainer/FoodMinus" to="." method="_on_button_tree_exited"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HeatContainer/FoodPlus" to="." method="_on_button_pressed"]
+[connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/HeatContainer/FoodPlus" to="." method="_on_button_tree_exited"]
