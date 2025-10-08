@@ -16,4 +16,5 @@ func _on_day_timer_timeout():
 	
 	dialogue.queue_text("Il va bientot faire nuit. Il est l'heure de revenir au chalet")
 	dialogue.fade_to_black()
+	Global.fin_de_journee()
 	dialogue.change_scene("res://scenes/management menu.tscn")

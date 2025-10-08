@@ -121,7 +121,7 @@ func _start_dialogue():
 		# 💀 Ensuite : elle évalue l’état du joueur
 		if not has_healed_today:
 			if Global.player_hp < 120:
-				var heal_amount = 25
+				var heal_amount = 80
 				Global.player_hp = min(Global.player_hp + heal_amount, 120)
 				has_healed_today = true
 				Textbox.queue_text("Ton corps tremble... Laisse-moi t'aider.", "evil_fairy")

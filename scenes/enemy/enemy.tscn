@@ -206,6 +206,7 @@ size = Vector2(97.6382, 87.7565)
 [node name="bear" type="Area2D"]
 script = ExtResource("1_a3pup")
 health = 4
+food_drop = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

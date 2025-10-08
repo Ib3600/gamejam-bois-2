@@ -42,7 +42,7 @@ func spawn_particles():
 
 
 func spawn_wood(wood_drop):
-	for i in range(wood_drop + Global.niveu_hache):
+	for i in range(wood_drop + Global.niveau_hache):
 		var wood = wood_scene.instantiate()
 		get_parent().add_child(wood)
 
