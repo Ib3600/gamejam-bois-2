@@ -27,14 +27,17 @@ var has_seen_player: bool = false
 var is_attacking: bool = false
 var facing_right: bool = true
 var is_dead: bool = false
+@onready var bear_collider: StaticBody2D = $bear_collider
 
 func _ready():
+	
 	anim.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	anim.connect("frame_changed", Callable(self, "_on_frame_changed"))
 	_disable_all_collisions()
 	anim.play("default")
 
 func _process(delta):
+	bear_collider.global_position = global_position
 	if is_dead:
 		return
 
@@ -78,6 +81,7 @@ func die():
 	spawn_particles()
 	await spawn_food(food_drop)
 	queue_free()
+	
 
 # --- Flip direction ---
 func _flip_direction(face_right: bool):

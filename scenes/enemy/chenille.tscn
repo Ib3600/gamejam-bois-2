@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=3 uid="uid://db7tl6bg0sxp"]
+
+[ext_resource type="Script" uid="uid://b44bh7ny3eqmc" path="res://scripts/chenille.gd" id="1_n6xnl"]
+[ext_resource type="Texture2D" uid="uid://cyhxby8jufib7" path="res://assets/enemies/chenille_non_arrangé/cheniiille1.png" id="2_0cosj"]
+[ext_resource type="Texture2D" uid="uid://dcjwch1vpt1ul" path="res://assets/enemies/chenille_non_arrangé/cheniiille2.png" id="3_tls4j"]
+[ext_resource type="Texture2D" uid="uid://ciawycx3i4xpo" path="res://assets/enemies/chenille_non_arrangé/cheniiille3.png" id="4_d1k5b"]
+[ext_resource type="Texture2D" uid="uid://3bx0mxe2duuw" path="res://assets/enemies/chenille_non_arrangé/cheniiille4.png" id="5_p2qml"]
+[ext_resource type="Texture2D" uid="uid://7mik28gsoku4" path="res://assets/enemies/chenille_non_arrangé/cheniiille5.png" id="6_d1cq1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etbgg"]
+atlas = ExtResource("2_0cosj")
+region = Rect2(0, 0, 2560, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ighh"]
+atlas = ExtResource("3_tls4j")
+region = Rect2(0, 0, 2560, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ntuf"]
+atlas = ExtResource("4_d1k5b")
+region = Rect2(0, 0, 2560, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_det1s"]
+atlas = ExtResource("5_p2qml")
+region = Rect2(0, 0, 2560, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxd24"]
+atlas = ExtResource("6_d1cq1")
+region = Rect2(0, 0, 2560, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0d76"]
+atlas = ExtResource("2_0cosj")
+region = Rect2(0, 0, 2560, 1600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hddjh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etbgg")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6ighh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ntuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_det1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxd24")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0d76")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1unbi"]
+size = Vector2(1077, 205)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6xnl"]
+radius = 1228.18
+
+[node name="chenille" type="Area2D"]
+script = ExtResource("1_n6xnl")
+health = 10
+attack_cooldown = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hddjh")
+animation = &"attack"
+frame_progress = 0.486215
+flip_h = true
+
+[node name="hurtbox" type="Area2D" parent="." groups=["damage"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hurtbox"]
+polygon = PackedVector2Array(-334, -161, -779, 295, -725, 405, 702, 363, 782, 246)
+
+[node name="hitbox_idle" type="Area2D" parent="." groups=["damage"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox_idle"]
+polygon = PackedVector2Array(-798, 215, -779, 295, -725, 405, 611, 420, 577, 185)
+
+[node name="hitbox_attack" type="Area2D" parent="." groups=["damage"]]
+
+[node name="4" type="CollisionPolygon2D" parent="hitbox_attack"]
+polygon = PackedVector2Array(-441, -195, -634, 413, -463, 508, 23, 511, -277, -210)
+
+[node name="1_3" type="CollisionPolygon2D" parent="hitbox_attack"]
+polygon = PackedVector2Array(-752, 166, -790, 306, -665, 394, 516, 409, 516, 147)
+
+[node name="detect_player" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_player"]
+position = Vector2(931, 306)
+shape = SubResource("RectangleShape2D_1unbi")
+
+[node name="stop_attacking" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stop_attacking"]
+position = Vector2(460, 228)
+shape = SubResource("CircleShape2D_n6xnl")
+
+[node name="attackCooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]
+[connection signal="body_exited" from="detect_player" to="." method="_on_detect_player_body_exited"]
+[connection signal="body_entered" from="stop_attacking" to="." method="_on_stop_attacking_body_entered"]
+[connection signal="body_exited" from="stop_attacking" to="." method="_on_stop_attacking_body_exited"]
+[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]

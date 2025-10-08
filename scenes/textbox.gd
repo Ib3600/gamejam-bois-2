@@ -86,17 +86,25 @@ func display_text():
 	show_textbox()
 
 	match speaker:
-		"good fairy":
+		"good_fairy":
 			character_sprite.show()
 			character_sprite.play("good_fairy")
+
 		"marchand":
 			character_sprite.show()
 			character_sprite.play("marchand")
-		_:
-			character_sprite.play("nothing")
+
+		"evil_fairy":
+			character_sprite.show()
+			character_sprite.play("evil_fairy")
+
 		"player":
 			player.show()
 			player.play("default")
+
+		_:
+			character_sprite.hide()
+
 
 	if indicator:
 		indicator.hide()
@@ -169,3 +177,8 @@ func change_scene(scene_path: String) -> void:
 func _wait_for_dialogue_end() -> void:
 	while current_state != State.READY or not text_queue.is_empty():
 		await get_tree().process_frame
+		
+		
+func affichage_score():
+	var somme_vie_habitant = Global.sante_marchand + Global.sante_evil_fairy + Global.sante_pantin + Global.sante_good_fairy + Global.player_hp
+	queue_text("Votre score est de : " + str(somme_vie_habitant))

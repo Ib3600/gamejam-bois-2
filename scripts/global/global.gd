@@ -1,5 +1,8 @@
 extends Node2D
 
+#gestion des arbres : 
+var arbres_détruits: Array = []
+
 
 # --- Pnj --- 
 var sante_marchand = 100
@@ -7,6 +10,7 @@ var sante_good_fairy = 100
 var sante_evil_fairy = 100
 var sante_pantin = 100
 
+var axe_collected = false
 var etat_marchand =[false,false] #case 1 le froid, #case 2 la faim
 
 var etat_good_fairy =[false,false]

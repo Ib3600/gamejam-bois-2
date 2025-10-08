@@ -302,7 +302,6 @@ func die():
 	Textbox.queue_text("Les habitants du chalet vous suivront bientot.")
 	Textbox.queue_text("Vous n'avez pas survécu à la tempête.")
 	Textbox.change_scene("res://scenes/main_menu.tscn")
-	Textbox.fade_from_black(1)
 	
 
 

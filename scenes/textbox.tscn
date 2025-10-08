@@ -212,7 +212,7 @@ texture_filter = 1
 position = Vector2(1001, 438)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_b4n6f")
-animation = &"good_fairy"
+animation = &"evil_fairy"
 
 [node name="FadeRect" type="ColorRect" parent="."]
 z_index = 10
