@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bosvpkft6qd33"]
+[gd_scene load_steps=32 format=3 uid="uid://bosvpkft6qd33"]
 
 [ext_resource type="Texture2D" uid="uid://d377o5ql0a6pw" path="res://assets/enemies/ours.png" id="1_4a83h"]
 [ext_resource type="Script" uid="uid://b7y47wuj2n4a2" path="res://scenes/enemy/bear.gd" id="1_a3pup"]
@@ -200,6 +200,9 @@ radius = 1500.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_tjssy"]
 radius = 2500.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjssy"]
+size = Vector2(97.6382, 87.7565)
+
 [node name="bear" type="Area2D"]
 script = ExtResource("1_a3pup")
 health = 4
@@ -254,6 +257,16 @@ polygon = PackedVector2Array(-8, -151, -110, -121, -100, 26, 37, 50, 126, 38, 15
 
 [node name="right" type="CollisionPolygon2D" parent="hitbox_bury"]
 polygon = PackedVector2Array(3, -151, -163, -56, -119, 42, 76, 33, 120, -111)
+
+[node name="bear_collider" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bear_collider"]
+position = Vector2(-6, -50)
+rotation = -3.14159
+scale = Vector2(3.14518, 2.66777)
+shape = SubResource("RectangleShape2D_tjssy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="hitbox_bite" to="." method="_on_hitbox_bite_area_entered"]

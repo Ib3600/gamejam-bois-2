@@ -5,7 +5,6 @@ var has_talked_today: bool = false
 var has_healed_today: bool = false  # ✅ ne soigne qu’une fois par jour
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var texture_rect: ColorRect = $TextureRect
 
 
 # --- STRUCTURE DES DIALOGUES ---
@@ -21,7 +20,7 @@ var dialogues := {
 	},
 	2: {
 		"first": [
-			"Il faut voir le bon côté des choses",
+			"Il faut voir le bon côté des choses.",
 			"Nous sommes tous ensembles !",
 			"Même si tu fais tout le boulot..."
 		],
@@ -71,14 +70,14 @@ var dialogues := {
 
 # --- READY ---
 func _ready():
+	if Global.sante_evil_fairy <= 0 :
+		queue_free()
 	is_talking = false
 	anim.play("default")
-	texture_rect.visible = false
 
 
 # --- PROCESS ---
 func _process(_delta):
-	texture_rect.visible = is_talking
 
 	if is_talking and Input.is_action_just_pressed("hit"):
 		_start_dialogue()

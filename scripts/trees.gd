@@ -1,17 +1,27 @@
 extends StaticBody2D
 
+@export var tree_id: String = ""  # identifiant unique
 @export var tree_health: int = 3
 @export var wood_drop: int = 3
 
 var particle_scene = preload("res://scenes/particles/tree_down.tscn")
 var wood_scene = preload("res://scenes/wood_item.tscn")
 
-var is_dying: bool = false  # <-- protection contre exécutions multiples
+var is_dying: bool = false  # protection contre exécutions multiples
 
 
-func _process(delta):
+func _ready():
+	# 🌲 Si cet arbre a déjà été détruit pendant la run → on le supprime immédiatement
+	if "arbres_détruits" in Global and tree_id in Global.arbres_détruits:
+		queue_free()
+
+
+func _process(_delta):
 	if tree_health <= 0 and not is_dying:
-		is_dying = true  # ✅ empêche de rappeler la destruction
+		is_dying = true
+		# ✅ On marque cet arbre comme détruit (mais sans sauvegarde sur disque)
+		if tree_id != "" and tree_id not in Global.arbres_détruits:
+			Global.arbres_détruits.append(tree_id)
 		spawn_particles()
 		await spawn_wood(wood_drop)
 		queue_free()
@@ -32,7 +42,7 @@ func spawn_particles():
 
 
 func spawn_wood(wood_drop):
-	for i in range(wood_drop):
+	for i in range(wood_drop + Global.niveu_hache):
 		var wood = wood_scene.instantiate()
 		get_parent().add_child(wood)
 

@@ -1,26 +1,25 @@
-[gd_scene load_steps=41 format=4 uid="uid://1ij0t5yjb7ef"]
+[gd_scene load_steps=39 format=4 uid="uid://t5faab60mcqc"]
 
-[ext_resource type="Script" uid="uid://cnh0s5sb8ua6e" path="res://scripts/cutscenes/intro_cutscene.gd" id="1_icj2m"]
-[ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="1_kxktx"]
-[ext_resource type="Texture2D" uid="uid://chhyi33fnburt" path="res://assets/sloppymess_3.png" id="2_f0pcv"]
-[ext_resource type="Texture2D" uid="uid://b06hcq8ecr0ra" path="res://assets/blue_wood.png" id="3_m3m6x"]
-[ext_resource type="Script" uid="uid://k1tvg6c8nl0n" path="res://scenes/follow_player.gd" id="4_g5cdg"]
-[ext_resource type="PackedScene" uid="uid://wjb1wexs7mog" path="res://scenes/shader_test/shader_test.tscn" id="5_je41u"]
-[ext_resource type="PackedScene" uid="uid://1vagkgo2wl3" path="res://scenes/chimney.tscn" id="7_6gj7g"]
-[ext_resource type="PackedScene" uid="uid://de8ocltrj02fo" path="res://scenes/textbox.tscn" id="7_g5cdg"]
-[ext_resource type="AudioStream" uid="uid://cua61wt38tu3m" path="res://sounds/music/blizzard_sound.ogg" id="7_m3m6x"]
-[ext_resource type="PackedScene" uid="uid://cj5ri2m5s0mvp" path="res://scenes/tree.tscn" id="9_iuatu"]
-[ext_resource type="PackedScene" uid="uid://cnliopt31nns1" path="res://scenes/personnages/fee.tscn" id="10_ieyom"]
-[ext_resource type="PackedScene" uid="uid://bfnjd8y7e3d7j" path="res://scenes/personnages/fee_malefique.tscn" id="11_q8p7g"]
-[ext_resource type="PackedScene" uid="uid://c20p6vgln3v5b" path="res://scenes/personnages/marchand.tscn" id="12_mg4kr"]
-[ext_resource type="PackedScene" uid="uid://c6wio4w3hbb12" path="res://scenes/personnages/pantin.tscn" id="13_ehef0"]
-[ext_resource type="Texture2D" uid="uid://j0b1tteegpit" path="res://assets/characters/woodycharacter.png" id="13_f0pcv"]
-[ext_resource type="Texture2D" uid="uid://3ajlm0w4npgo" path="res://assets/characters/mouvement_marchand.png" id="14_m3m6x"]
-[ext_resource type="PackedScene" uid="uid://bosvpkft6qd33" path="res://scenes/enemy/enemy.tscn" id="14_x0v38"]
-[ext_resource type="PackedScene" uid="uid://roql8td538ad" path="res://scenes/particles/snow_barrier.tscn" id="15_sd6td"]
+[ext_resource type="Script" uid="uid://dga47y3vwtvw2" path="res://scripts/cutscenes/end_cutscene.gd" id="1_3k0mx"]
+[ext_resource type="Texture2D" uid="uid://bwh8a4a6xnj3b" path="res://assets/wood_no_example.png" id="2_r1w43"]
+[ext_resource type="Texture2D" uid="uid://chhyi33fnburt" path="res://assets/sloppymess_3.png" id="3_ts072"]
+[ext_resource type="Texture2D" uid="uid://b06hcq8ecr0ra" path="res://assets/blue_wood.png" id="4_k7adp"]
+[ext_resource type="Script" uid="uid://k1tvg6c8nl0n" path="res://scenes/follow_player.gd" id="5_jgblv"]
+[ext_resource type="PackedScene" uid="uid://wjb1wexs7mog" path="res://scenes/shader_test/shader_test.tscn" id="6_qw0pi"]
+[ext_resource type="PackedScene" uid="uid://1vagkgo2wl3" path="res://scenes/chimney.tscn" id="7_jdni3"]
+[ext_resource type="PackedScene" uid="uid://cj5ri2m5s0mvp" path="res://scenes/tree.tscn" id="8_tkihn"]
+[ext_resource type="PackedScene" uid="uid://cnliopt31nns1" path="res://scenes/personnages/fee.tscn" id="9_sinnr"]
+[ext_resource type="PackedScene" uid="uid://bfnjd8y7e3d7j" path="res://scenes/personnages/fee_malefique.tscn" id="10_ds6wx"]
+[ext_resource type="PackedScene" uid="uid://c20p6vgln3v5b" path="res://scenes/personnages/marchand.tscn" id="11_wpl58"]
+[ext_resource type="PackedScene" uid="uid://c6wio4w3hbb12" path="res://scenes/personnages/pantin.tscn" id="12_18kcp"]
+[ext_resource type="Texture2D" uid="uid://j0b1tteegpit" path="res://assets/characters/woodycharacter.png" id="13_1nm4k"]
+[ext_resource type="Texture2D" uid="uid://3ajlm0w4npgo" path="res://assets/characters/mouvement_marchand.png" id="14_v8rg8"]
+[ext_resource type="PackedScene" uid="uid://bosvpkft6qd33" path="res://scenes/enemy/enemy.tscn" id="15_4ilo0"]
+[ext_resource type="PackedScene" uid="uid://roql8td538ad" path="res://scenes/particles/snow_barrier.tscn" id="16_7p70h"]
+[ext_resource type="PackedScene" uid="uid://de8ocltrj02fo" path="res://scenes/textbox.tscn" id="17_n68pw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfovw"]
-texture = ExtResource("1_kxktx")
+texture = ExtResource("2_r1w43")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -292,7 +291,7 @@ texture_region_size = Vector2i(32, 32)
 8:16/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pu3yx"]
-texture = ExtResource("2_f0pcv")
+texture = ExtResource("3_ts072")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
@@ -376,7 +375,7 @@ texture_region_size = Vector2i(32, 32)
 7:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18nlu"]
-texture = ExtResource("3_m3m6x")
+texture = ExtResource("4_k7adp")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
@@ -396,253 +395,96 @@ sources/0 = SubResource("TileSetAtlasSource_lfovw")
 sources/1 = SubResource("TileSetAtlasSource_pu3yx")
 sources/2 = SubResource("TileSetAtlasSource_18nlu")
 
-[sub_resource type="Animation" id="Animation_f0pcv"]
+[sub_resource type="Animation" id="Animation_m3m6x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Camera2D/shader_snow:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-545, -97)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Fade:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("shader_snow:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:zoom")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [Vector2(2.375, 2.375)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../AudioStreamPlayer2D:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("dialogue:chara_name")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["marchand"]
+"values": []
 }
 
-[sub_resource type="Animation" id="Animation_kxktx"]
-resource_name = "show_world"
-length = 20.0
+[sub_resource type="Animation" id="Animation_f0pcv"]
+resource_name = "end"
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.36667, 4.4, 8.16667, 8.23333, 8.31),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-545, -97), Vector2(100, -97), Vector2(891, 1050), Vector2(1400, 1050), Vector2(545, 350), Vector2(545, 280)]
+"values": [Vector2(1289, 1070)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Fade:color")
+tracks/1/path = NodePath("Camera2D/shader_snow:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-0.266667, 0, 0.4, 3.33333, 4.03333, 4.63333, 5.36667, 7.16667, 7.86667, 8.46667, 9.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 4.98),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/2/type = "audio"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/path = NodePath("TextBox")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("7_m3m6x")
-}],
-"times": PackedFloat32Array(0.0333328)
-}
-tracks/2/use_blend = true
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("shader_snow:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 8.16667, 8.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:zoom")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(-0.0333333, 8.16667, 8.23333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(2.375, 2.375), Vector2(2.375, 2.375), Vector2(3.5, 3.5)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../AudioStreamPlayer2D:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(-0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("dialogue")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(9.83333, 10.0333, 10.2667, 10.4667, 10.6333, 10.7667, 10.8333, 10.9, 10.942, 10.9893, 11.0333, 11.0696, 11.1667, 11.2499, 11.3, 12.6555, 13.4, 14.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(5.76667, 6.1, 6.6, 7.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
-"args": ["Eh.", "marchand"],
+"args": ["Bravo !", "nothing"],
 "method": &"queue_text"
 }, {
-"args": ["C'est un sale temps. Les routes sont totalement bloquées.", "marchand"],
+"args": ["Vous avez survécu à la tempête !", "nothing"],
 "method": &"queue_text"
 }, {
-"args": ["Je viens du chalet voisin. La situation est catastrophique pour tout le monde. ", "marchand"],
+"args": ["Merci d'avoir joué !", "nothing"],
 "method": &"queue_text"
 }, {
-"args": ["Je suis un grand gaillard donc je me suis aventuré dans la tempête pour voir si tout allait bien ici.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Ça a l'air d'aller.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Pour l'instant.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Je vois que vos réserves de bois et de nourritures ne sont pas énormes.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Je vous conseille de profiter de la journée pour aller en chercher dehors.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["La nuit vous pourrez les répartir entre les différents habitants du chalet.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Essayez de les garder tous en vie. La tempête devrait bientôt se calmer.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Je crois.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Bon.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Je dois y aller.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Je reviendrais tous les matins vous informer de la situation et vous proposer quelques échanges.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Après tout il faut s'entraider dans ce type de situation.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": ["Au revoir.", "marchand"],
-"method": &"queue_text"
-}, {
-"args": [1.5],
-"method": &"fade_to_black"
-}, {
-"args": ["res://scenes/day1.tscn"],
-"method": &"change_scene"
+"args": [],
+"method": &"affichage_score"
 }]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("dialogue:chara_name")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(9.76667, 10.9333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["marchand", "good fairy"]
-}
 
-[sub_resource type="Animation" id="Animation_icj2m"]
-resource_name = "show_world2"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3m6x"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5cdg"]
 _data = {
-&"RESET": SubResource("Animation_f0pcv"),
-&"show_world": SubResource("Animation_kxktx"),
-&"show_world2": SubResource("Animation_icj2m")
+&"RESET": SubResource("Animation_m3m6x"),
+&"end": SubResource("Animation_f0pcv")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5cdg"]
-atlas = ExtResource("13_f0pcv")
+atlas = ExtResource("13_1nm4k")
 region = Rect2(0, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je41u"]
-atlas = ExtResource("13_f0pcv")
+atlas = ExtResource("13_1nm4k")
 region = Rect2(64, 0, 64, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_icj2m"]
@@ -660,35 +502,35 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tkrm"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gj7g"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nieb5"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuatu"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ieyom"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8p7g"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mg4kr"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ehef0"]
-atlas = ExtResource("14_m3m6x")
+atlas = ExtResource("14_v8rg8")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x0v38"]
@@ -729,8 +571,8 @@ size = Vector2(168, 1917)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je41u"]
 size = Vector2(2670, 77)
 
-[node name="world3" type="Node2D"]
-script = ExtResource("1_icj2m")
+[node name="world5" type="Node2D"]
+script = ExtResource("1_3k0mx")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -738,40 +580,20 @@ tile_map_data = PackedByteArray("AAAHAAQAAgAAAAEAAAAHAAUAAgAAAAAAAAAHAAYAAgAAAAE
 tile_set = SubResource("TileSet_t4345")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-545, -97)
 zoom = Vector2(2.375, 2.375)
-script = ExtResource("4_g5cdg")
+script = ExtResource("5_jgblv")
 
-[node name="shader_snow" parent="Camera2D" instance=ExtResource("5_je41u")]
-position = Vector2(-261, -139)
+[node name="shader_snow" parent="Camera2D" instance=ExtResource("6_qw0pi")]
+position = Vector2(-256, -159)
 scale = Vector2(1, 1.37)
 
-[node name="ColorRect2" type="ColorRect" parent="Camera2D"]
-z_index = 10
-offset_left = -216.0
-offset_top = -212.0
-offset_right = -176.0
-offset_bottom = -172.0
-scale = Vector2(12.7982, 7.10717)
-color = Color(0.4, 0.701961, 1, 0)
-
-[node name="dialogue" parent="Camera2D" instance=ExtResource("7_g5cdg")]
-
-[node name="camera_animation" type="AnimationPlayer" parent="Camera2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+root_node = NodePath("../..")
 libraries = {
-&"": SubResource("AnimationLibrary_m3m6x")
+&"": SubResource("AnimationLibrary_g5cdg")
 }
 
-[node name="Fade" type="ColorRect" parent="Camera2D"]
-z_index = 80
-offset_left = -278.0
-offset_top = -162.0
-offset_right = -238.0
-offset_bottom = -122.0
-scale = Vector2(13.8509, 7.78466)
-color = Color(0, 0, 0, 0)
-
-[node name="chimney" parent="." instance=ExtResource("7_6gj7g")]
+[node name="chimney" parent="." instance=ExtResource("7_jdni3")]
 z_index = 15
 position = Vector2(541, 228)
 scale = Vector2(0.8, 0.8)
@@ -791,44 +613,44 @@ y_sort_enabled = true
 z_index = 1
 y_sort_enabled = true
 
-[node name="trees" parent="environment/trees2" instance=ExtResource("9_iuatu")]
+[node name="trees" parent="environment/trees2" instance=ExtResource("8_tkihn")]
 y_sort_enabled = true
 position = Vector2(1066, 292)
 
-[node name="trees2" parent="environment/trees2" instance=ExtResource("9_iuatu")]
+[node name="trees2" parent="environment/trees2" instance=ExtResource("8_tkihn")]
 position = Vector2(171, 525)
 
-[node name="trees3" parent="environment/trees2" instance=ExtResource("9_iuatu")]
+[node name="trees3" parent="environment/trees2" instance=ExtResource("8_tkihn")]
 position = Vector2(784, -31)
 
-[node name="trees4" parent="environment/trees2" instance=ExtResource("9_iuatu")]
+[node name="trees4" parent="environment/trees2" instance=ExtResource("8_tkihn")]
 y_sort_enabled = true
 position = Vector2(-331, 807)
 
-[node name="trees5" parent="environment/trees2" instance=ExtResource("9_iuatu")]
+[node name="trees5" parent="environment/trees2" instance=ExtResource("8_tkihn")]
 position = Vector2(1148, 1146)
 
-[node name="trees6" parent="environment/trees2" instance=ExtResource("9_iuatu")]
+[node name="trees6" parent="environment/trees2" instance=ExtResource("8_tkihn")]
 position = Vector2(1245, 655)
 
-[node name="trees7" parent="environment/trees2" instance=ExtResource("9_iuatu")]
+[node name="trees7" parent="environment/trees2" instance=ExtResource("8_tkihn")]
 position = Vector2(-230, -41)
 
 [node name="npcs" type="Node2D" parent="environment"]
 y_sort_enabled = true
 position = Vector2(382, 155)
 
-[node name="fairy" parent="environment/npcs" instance=ExtResource("10_ieyom")]
+[node name="fairy" parent="environment/npcs" instance=ExtResource("9_sinnr")]
 position = Vector2(335, 4)
 
-[node name="evil_fairy" parent="environment/npcs" instance=ExtResource("11_q8p7g")]
+[node name="evil_fairy" parent="environment/npcs" instance=ExtResource("10_ds6wx")]
 position = Vector2(2, 2)
 
-[node name="shopkeeper" parent="environment/npcs" instance=ExtResource("12_mg4kr")]
+[node name="shopkeeper" parent="environment/npcs" instance=ExtResource("11_wpl58")]
 y_sort_enabled = true
 position = Vector2(521, 5)
 
-[node name="fee" parent="environment/npcs" instance=ExtResource("13_ehef0")]
+[node name="fee" parent="environment/npcs" instance=ExtResource("12_18kcp")]
 position = Vector2(-94, 271)
 scale = Vector2(0.05, 0.05)
 
@@ -848,11 +670,11 @@ frame_progress = 0.259905
 [node name="enemies" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
 
-[node name="bear" parent="enemies" instance=ExtResource("14_x0v38")]
+[node name="bear" parent="enemies" instance=ExtResource("15_4ilo0")]
 position = Vector2(-82, -300)
 scale = Vector2(0.5, 0.5)
 
-[node name="bear2" parent="enemies" instance=ExtResource("14_x0v38")]
+[node name="bear2" parent="enemies" instance=ExtResource("15_4ilo0")]
 position = Vector2(2772, 2288)
 scale = Vector2(0.5, 0.5)
 
@@ -874,25 +696,25 @@ shape = SubResource("RectangleShape2D_je41u")
 position = Vector2(1895, 372)
 shape = SubResource("RectangleShape2D_g5cdg")
 
-[node name="up_p" parent="StaticBody2D" instance=ExtResource("15_sd6td")]
+[node name="up_p" parent="StaticBody2D" instance=ExtResource("16_7p70h")]
 position = Vector2(634, -618)
 emission_rect_extents = Vector2(1500, 100)
 scale_amount_min = 5.0
 scale_amount_max = 10.0
 
-[node name="down_p" parent="StaticBody2D" instance=ExtResource("15_sd6td")]
+[node name="down_p" parent="StaticBody2D" instance=ExtResource("16_7p70h")]
 position = Vector2(574, 1408)
 emission_rect_extents = Vector2(1500, 100)
 scale_amount_min = 5.0
 scale_amount_max = 10.0
 
-[node name="left_p" parent="StaticBody2D" instance=ExtResource("15_sd6td")]
+[node name="left_p" parent="StaticBody2D" instance=ExtResource("16_7p70h")]
 position = Vector2(-704, 491)
 emission_rect_extents = Vector2(100, 1000)
 scale_amount_min = 5.0
 scale_amount_max = 10.0
 
-[node name="right_p" parent="StaticBody2D" instance=ExtResource("15_sd6td")]
+[node name="right_p" parent="StaticBody2D" instance=ExtResource("16_7p70h")]
 position = Vector2(1877, 203)
 emission_rect_extents = Vector2(100, 1000)
 scale_amount_min = 5.0
@@ -900,3 +722,5 @@ scale_amount_max = 10.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
+
+[node name="TextBox" parent="." instance=ExtResource("17_n68pw")]
