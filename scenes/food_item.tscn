@@ -9,7 +9,7 @@ radius = 94.0479
 [sub_resource type="CircleShape2D" id="CircleShape2D_osqqf"]
 radius = 25.318
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_hluqm")
 drop_name = "food"

@@ -81,11 +81,11 @@ layout_mode = 2
 
 [node name="MinusButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
 layout_mode = 2
-text = "Acheter"
+text = "-"
 
 [node name="PlusButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer"]
 layout_mode = 2
-text = "Acheter"
+text = "+"
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/MinusButton" to="." method="_on_button_pressed"]
 [connection signal="tree_exited" from="HBoxContainer/MarginContainer/VBoxContainer/ControlsContainer/MinusButton" to="." method="_on_button_tree_exited"]
