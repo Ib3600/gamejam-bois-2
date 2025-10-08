@@ -8,7 +8,9 @@
 texture_filter = 1
 offset_right = 40.0
 offset_bottom = 40.0
-value = 100.0
+max_value = 120.0
+value = 70.0
 texture_under = ExtResource("1_5rdes")
 texture_over = ExtResource("2_vfrvm")
 texture_progress = ExtResource("3_8l1ne")
+texture_progress_offset = Vector2(-1.99, 0)

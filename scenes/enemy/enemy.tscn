@@ -202,16 +202,15 @@ radius = 2500.0
 
 [node name="bear" type="Area2D"]
 script = ExtResource("1_a3pup")
+health = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_prup0")
-animation = &"attack"
-frame = 4
-frame_progress = 0.394285
-flip_h = true
+animation = &"burry_attack"
 
 [node name="hurtbox_bite" type="Area2D" parent="." groups=["damage"]]
+visible = false
 
 [node name="left" type="CollisionPolygon2D" parent="hurtbox_bite"]
 position = Vector2(86, -47)
@@ -224,6 +223,7 @@ rotation = 1.04413
 polygon = PackedVector2Array(23.0495, -244.554, 7.65106, -291.68, 22.408, -291.197, 25.5256, -326.401, 48.2839, -317.795, 52.7276, -331.406, 90.6849, -315.119, 123.997, -274.929, 167.161, -241.734, 197.819, -194.989, 201.175, -162.962, 197.011, -104.075, 160.961, -44.0636, 109.894, -15.9188, 44.171, -18.2736, 0.363754, -48.3722, -68.054, -22.2184, -68.2144, -33.8792, -131.363, -48.6185, -125.351, -72.8848, -138.318, -80.4246, -112.824, -122.282, -117.005, -127.027, -78.1209, -168.039, -28.804, -161.342)
 
 [node name="hitbox_bite" type="Area2D" parent="."]
+visible = false
 
 [node name="right" type="CollisionPolygon2D" parent="hitbox_bite"]
 position = Vector2(120, -62)
@@ -247,7 +247,16 @@ shape = SubResource("CircleShape2D_tjssy")
 [node name="attackCooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="hitbox_bury" type="Area2D" parent="."]
+
+[node name="left" type="CollisionPolygon2D" parent="hitbox_bury"]
+polygon = PackedVector2Array(-8, -151, -110, -121, -100, 26, 37, 50, 126, 38, 158, -47)
+
+[node name="right" type="CollisionPolygon2D" parent="hitbox_bury"]
+polygon = PackedVector2Array(3, -151, -163, -56, -119, 42, 76, 33, 120, -111)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="hitbox_bite" to="." method="_on_hitbox_bite_area_entered"]
 [connection signal="body_exited" from="patrol zone" to="." method="_on_patrol_zone_body_exited"]
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="area_entered" from="hitbox_bury" to="." method="_on_hitbox_bury_area_entered"]

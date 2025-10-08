@@ -511,64 +511,6 @@ scale = Vector2(1.25, 1.25)
 
 [node name="firePosition" type="Node2D" parent="chimney/chimney"]
 
-[node name="environment" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="player" parent="environment" node_paths=PackedStringArray("cold_overlay", "snow_effect", "cold_animator", "tilemap", "fire") instance=ExtResource("8_lqmux")]
-y_sort_enabled = true
-position = Vector2(566, 293)
-in_scene = true
-cold_overlay = NodePath("../../Camera2D/ColorRect2")
-snow_effect = NodePath("../../Camera2D/shader_snow")
-cold_animator = NodePath("../../Camera2D/ColorRect2/AnimationPlayer")
-tilemap = NodePath("../../TileMapLayer")
-fire = NodePath("../../chimney/chimney/firePosition")
-
-[node name="trees2" type="Node2D" parent="environment"]
-z_index = 1
-y_sort_enabled = true
-
-[node name="trees" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
-y_sort_enabled = true
-position = Vector2(1066, 292)
-
-[node name="trees2" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
-position = Vector2(171, 525)
-
-[node name="trees2" parent="environment/trees2/trees2" instance=ExtResource("9_sqvqo")]
-position = Vector2(-401, -566)
-
-[node name="trees3" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
-position = Vector2(784, -31)
-
-[node name="trees4" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
-y_sort_enabled = true
-position = Vector2(-331, 807)
-
-[node name="trees5" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
-position = Vector2(632, 1211)
-
-[node name="trees6" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
-position = Vector2(1245, 655)
-
-[node name="npcs" type="Node2D" parent="environment"]
-y_sort_enabled = true
-position = Vector2(382, 155)
-
-[node name="fairy" parent="environment/npcs" instance=ExtResource("10_u67lh")]
-position = Vector2(335, 4)
-
-[node name="evil_fairy" parent="environment/npcs" instance=ExtResource("11_vws5j")]
-position = Vector2(2, 2)
-
-[node name="shopkeeper" parent="environment/npcs" instance=ExtResource("12_eccnk")]
-y_sort_enabled = true
-position = Vector2(521, 5)
-
-[node name="fee" parent="environment/npcs" instance=ExtResource("13_331e4")]
-position = Vector2(-92, 271)
-scale = Vector2(0.05, 0.05)
-
 [node name="enemies" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
 
@@ -625,14 +567,74 @@ emission_rect_extents = Vector2(100, 1000)
 scale_amount_min = 5.0
 scale_amount_max = 10.0
 
-[node name="TextBox" parent="." instance=ExtResource("17_femew")]
+[node name="dialogue" parent="." instance=ExtResource("17_femew")]
 
 [node name="dayTimer" type="Timer" parent="."]
 wait_time = 240.0
+one_shot = true
 
 [node name="oven" parent="." instance=ExtResource("18_0ugl3")]
 y_sort_enabled = true
 position = Vector2(832, 389)
 scale = Vector2(0.4, 0.4)
+
+[node name="environment" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="player" parent="environment" node_paths=PackedStringArray("cold_overlay", "snow_effect", "cold_animator", "tilemap", "fire") instance=ExtResource("8_lqmux")]
+y_sort_enabled = true
+position = Vector2(566, 293)
+in_scene = true
+cold_overlay = NodePath("../../Camera2D/ColorRect2")
+snow_effect = NodePath("../../Camera2D/shader_snow")
+cold_animator = NodePath("../../Camera2D/ColorRect2/AnimationPlayer")
+tilemap = NodePath("../../TileMapLayer")
+fire = NodePath("../../chimney/chimney/firePosition")
+
+[node name="trees2" type="Node2D" parent="environment"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="trees" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
+y_sort_enabled = true
+position = Vector2(1066, 292)
+
+[node name="trees2" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
+position = Vector2(171, 525)
+
+[node name="trees2" parent="environment/trees2/trees2" instance=ExtResource("9_sqvqo")]
+position = Vector2(-401, -566)
+
+[node name="trees3" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
+position = Vector2(784, -31)
+
+[node name="trees4" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
+y_sort_enabled = true
+position = Vector2(-331, 807)
+
+[node name="trees5" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
+position = Vector2(632, 1211)
+
+[node name="trees6" parent="environment/trees2" instance=ExtResource("9_sqvqo")]
+position = Vector2(1245, 655)
+
+[node name="npcs" type="Node2D" parent="environment"]
+y_sort_enabled = true
+position = Vector2(382, 155)
+
+[node name="fairy" parent="environment/npcs" instance=ExtResource("10_u67lh")]
+position = Vector2(335, 4)
+
+[node name="evil_fairy" parent="environment/npcs" instance=ExtResource("11_vws5j")]
+position = Vector2(2, 2)
+
+[node name="shopkeeper" parent="environment/npcs" instance=ExtResource("12_eccnk")]
+z_index = 10
+y_sort_enabled = true
+position = Vector2(521, 5)
+
+[node name="fee" parent="environment/npcs" instance=ExtResource("13_331e4")]
+position = Vector2(-92, 271)
+scale = Vector2(0.05, 0.05)
 
 [connection signal="timeout" from="dayTimer" to="." method="_on_day_timer_timeout"]

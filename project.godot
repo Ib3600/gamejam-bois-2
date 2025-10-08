@@ -11,12 +11,18 @@ config_version=5
 [application]
 
 config/name="gamejam bois 2"
+run/main_scene="uid://jcnoyy7q1yo8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global/global.gd"
+Textbox="*res://scenes/textbox.tscn"
+
+[global_group]
+
+damage=""
 
 [input]
 

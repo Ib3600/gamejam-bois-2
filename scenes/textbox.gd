@@ -27,7 +27,8 @@ func _ready():
 	character_sprite.hide()
 	player.hide()
 	fade_rect.color.a = 0.0  # transparent
-	Global.dialogue = false  # état initial : pas de dialogue
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE  # ⬅️ ajoute cette ligne
+	Global.dialogue = false  # état initial
 
 func _process(_delta):
 	match current_state:
@@ -143,12 +144,19 @@ func change_state(next_state: State):
 # --- Fondu et changement de scène ---
 # ---------------------------------------------------
 
-# 🕶️ Attend que le dialogue soit terminé avant de commencer le fondu
+#  Attend que le dialogue soit terminé avant de commencer le fondu
 func fade_to_black(duration: float = 1.5) -> void:
 	await _wait_for_dialogue_end()
 	var tween = create_tween()
 	tween.tween_property(fade_rect, "color:a", 1.0, duration)
 	await tween.finished
+
+
+func fade_from_black(duration: float = 1.5) -> void:
+	var tween = create_tween()
+	tween.tween_property(fade_rect, "color:a", 0.0, duration)
+	await tween.finished
+
 
 #🕹️ Attend aussi la fin du dialogue avant de changer de scène
 func change_scene(scene_path: String) -> void:

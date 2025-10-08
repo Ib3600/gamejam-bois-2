@@ -1,14 +1,17 @@
 extends Node2D
 
-@onready var dialogue = $TextBox
+@onready var dialogue = $dialogue
 
 func _ready():
+	Global.current_day = 1
+
 	dialogue.queue_text("Jour 1")
 	$dayTimer.start()
 
 
 func _process(delta):
-	print($dayTimer.time_left)
+	pass
+	
 func _on_day_timer_timeout():
 	
 	dialogue.queue_text("Il va bientot faire nuit. Il est l'heure de revenir au chalet")

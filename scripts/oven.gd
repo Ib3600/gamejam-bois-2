@@ -4,7 +4,7 @@ extends StaticBody2D
 @onready var area: Area2D = $Area2D
 @onready var progress_bar: ProgressBar = $heat_bar
 
-@export var cook_time: float = 5.0       # durée pour "cuire" un bois en nourriture
+@export var cook_time: float = 10       # durée pour "cuire" un bois en nourriture
 @export var wood_scene: PackedScene = preload("res://scenes/wood_item_chimney.tscn")
 @export var food_scene: PackedScene = preload("res://scenes/food_item.tscn")
 
@@ -87,4 +87,4 @@ func _spawn_food():
 	var food = food_scene.instantiate()
 	get_parent().add_child(food)
 	food.global_position = global_position + Vector2(0, -20)
-	Global.food_stock += 1
+	

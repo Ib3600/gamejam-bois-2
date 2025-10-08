@@ -9,10 +9,15 @@ var cell
 var is_taking_damage: bool = false  
 @export var in_scene: bool = true
 @export var base_cold_loss: float = 6
+@export var invulnerability_time: float = 0.5  # Durée d’invulnérabilité après un coup
+var is_invulnerable: bool = false              # Flag pour savoir si le joueur peut reprendre un coup
+
 
 #gestion de la mort 
 
 var particle_scene = preload("res://scenes/particles/mob_dying.tscn")
+
+
 var is_dead: bool = false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -226,10 +231,8 @@ func _on_attack_cooldown_timeout():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("chimney"):
 		near_chimney = true
-	elif area.is_in_group("damage"):
-		Global.player_hp -=20
-		apply_knockback(area.global_position)
-		play_damage_animation()
+	elif area.is_in_group("damage") and not is_invulnerable:
+		receive_damage(20, area.global_position)
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("chimney"):
@@ -294,6 +297,13 @@ func die():
 
 	# Joue les particules de mort (même scène que l’ennemi)
 	spawn_death_particles()
+	Textbox.fade_to_black(2.5)
+	Textbox.queue_text("Vous êtes mort.")
+	Textbox.queue_text("Les habitants du chalet vous suivront bientot.")
+	Textbox.queue_text("Vous n'avez pas survécu à la tempête.")
+	Textbox.change_scene("res://scenes/main_menu.tscn")
+	Textbox.fade_from_black(1)
+	
 
 
 func spawn_death_particles():
@@ -301,3 +311,36 @@ func spawn_death_particles():
 	get_parent().add_child(particles)
 	particles.global_position = global_position
 	particles.emitting = true
+
+# --- Gestion centralisée des dégâts ---
+# --- Gestion centralisée des dégâts ---
+func receive_damage(amount: int, source_position: Vector2):
+	# Ignore si déjà mort ou invulnérable
+	if is_dead or is_invulnerable:
+		return
+
+	Global.player_hp -= amount
+
+	is_invulnerable = true
+	apply_knockback(source_position)
+	play_damage_animation()
+
+	# Effet de clignotement pendant l'invulnérabilité
+	await flash_invulnerability(invulnerability_time)
+
+	is_invulnerable = false
+
+
+# --- Clignotement pendant l'invulnérabilité ---
+func flash_invulnerability(duration: float):
+	var flash_interval := 0.08
+	var elapsed := 0.0
+
+	while elapsed < duration:
+		anim.modulate.a = 0.3
+		await get_tree().create_timer(flash_interval).timeout
+		anim.modulate.a = 1.0
+		await get_tree().create_timer(flash_interval).timeout
+		elapsed += flash_interval * 2
+
+	anim.modulate.a = 1.0  # Réinitialise à la fin

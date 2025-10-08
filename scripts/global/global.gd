@@ -2,17 +2,23 @@ extends Node2D
 
 
 # --- Pnj --- 
-var sante_marchand
-var sante_good_fairy
-var sante_evil_fairy
-var sante_pantin
+var sante_marchand = 100
+var sante_good_fairy = 100
+var sante_evil_fairy = 100
+var sante_pantin = 100
+
+var etat_marchand =[false,false] #case 1 le froid, #case 2 la faim
+
+var etat_good_fairy =[false,false]
+var etat_evil_fairy =[false,false]
+var etat_pantin =[false,false]
 
 var seuil_fairy = {
 	"faim":0,
 	"froid":0
 }
 
-
+var current_day:int
 # --- Ressources globales ---
 var wood_stock: int = 0
 var food_stock: int = 0
@@ -22,11 +28,11 @@ var dialogue: bool = false
 var player: CharacterBody2D = null  # on stockera ici la référence du joueur
 
 # --- Niveaux / progression ---
-var kitchen_level: int = 1
+var kitchen_level: int = 0
 
 # --- Valeurs joueur ---
 var player_heat: float = 100.0
-var player_hp: int = 100
+var player_hp: int = 120
 var niveau_manteau: int = 0
 var niveu_hache: int = 0
 

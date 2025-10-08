@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyvgvigl3tbr"]
+
+[ext_resource type="Texture2D" uid="uid://xkv7nc1nu0da" path="res://assets/enemies/rock1.png" id="1_5fxpv"]
+[ext_resource type="Script" uid="uid://bf7t01wtqa1tr" path="res://scripts/rock.gd" id="1_e4vwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idte6"]
+atlas = ExtResource("1_5fxpv")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3roqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idte6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p5jrj"]
+radius = 16.0
+height = 44.0
+
+[node name="rock" type="Area2D" groups=["damage"]]
+script = ExtResource("1_e4vwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3roqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+shape = SubResource("CapsuleShape2D_p5jrj")

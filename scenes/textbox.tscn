@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://de8ocltrj02fo"]
+[gd_scene load_steps=25 format=3 uid="uid://de8ocltrj02fo"]
 
 [ext_resource type="Script" uid="uid://45pya60rwvua" path="res://scenes/textbox.gd" id="1_3xmdk"]
 [ext_resource type="FontFile" uid="uid://cdri4ussn56w0" path="res://assets/fonts/Born2bSportyV2.ttf" id="1_nyk3b"]
-[ext_resource type="Texture2D" uid="uid://4immmyl86ylq" path="res://assets/dialogue/fairy_dialogue.png" id="3_g5d5p"]
+[ext_resource type="Texture2D" uid="uid://cxs7o8y5h17ye" path="res://assets/characters/fee.png" id="3_c4wvf"]
 [ext_resource type="Texture2D" uid="uid://5117hp4xj5f1" path="res://assets/characters/marchand_parle.png" id="4_qagdh"]
 [ext_resource type="Texture2D" uid="uid://j0b1tteegpit" path="res://assets/characters/woodycharacter.png" id="5_c4wvf"]
 
@@ -17,21 +17,37 @@ border_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyk3b"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qagdh"]
-atlas = ExtResource("3_g5d5p")
-region = Rect2(0, 0, 32, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4wvf"]
-atlas = ExtResource("3_g5d5p")
-region = Rect2(32, 0, 32, 21)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rgox"]
-atlas = ExtResource("3_g5d5p")
-region = Rect2(64, 0, 32, 21)
+atlas = ExtResource("3_c4wvf")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6occq"]
-atlas = ExtResource("3_g5d5p")
-region = Rect2(96, 0, 32, 21)
+atlas = ExtResource("3_c4wvf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h48g6"]
+atlas = ExtResource("3_c4wvf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0kpg"]
+atlas = ExtResource("3_c4wvf")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7yyr"]
+atlas = ExtResource("3_c4wvf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5qqc"]
+atlas = ExtResource("3_c4wvf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk4x5"]
+atlas = ExtResource("3_c4wvf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh21d"]
+atlas = ExtResource("3_c4wvf")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4n6f"]
 atlas = ExtResource("4_qagdh")
@@ -57,16 +73,33 @@ region = Rect2(0, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qagdh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c4wvf")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_1rgox")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6occq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h48g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0kpg")
+}],
+"loop": true,
+"name": &"evil_fairy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7yyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5qqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk4x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh21d")
 }],
 "loop": true,
 "name": &"good_fairy",
@@ -124,6 +157,7 @@ animations = [{
 script = ExtResource("1_3xmdk")
 
 [node name="TextBoxContainer" type="MarginContainer" parent="."]
+z_index = 15
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -178,7 +212,7 @@ texture_filter = 1
 position = Vector2(1001, 438)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_b4n6f")
-animation = &"nothing"
+animation = &"good_fairy"
 
 [node name="FadeRect" type="ColorRect" parent="."]
 z_index = 10
