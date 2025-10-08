@@ -1,3 +1,9 @@
+
+
+
+
+
+"""
 extends Control
 
 # VERSION AVANCÉE: Gère à la fois l'ÉNERGIE et la NOURRITURE
@@ -235,3 +241,4 @@ func afficher_etat(nom: String, a_froid: bool, a_faim: bool) -> void:
 		if a_faim:
 			problemes.append("🍖 faim")
 		print("  ⚠️ " + nom + " aura " + ", ".join(problemes))
+"""
